@@ -1,95 +1,61 @@
 import type { Metadata, Viewport } from "next"
-import { Inter } from "next/font/google"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Fraunces, Inter_Tight } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { Header } from "@/components/sections/header"
 import { Footer } from "@/components/sections/footer"
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider"
 import "./globals.css"
 
-/* ─── Font Setup ─── */
-const inter = Inter({
+const fraunces = Fraunces({
   subsets: ["latin"],
-  variable: "--font-inter",
+  variable: "--font-fraunces",
+  display: "swap",
+  axes: ["opsz", "SOFT"],
+})
+
+const interTight = Inter_Tight({
+  subsets: ["latin"],
+  variable: "--font-inter-tight",
   display: "swap",
 })
 
-const geist = Geist({
-  subsets: ["latin"],
-  variable: "--font-geist",
-  display: "swap",
-})
-
-const geistMono = Geist_Mono({
-  subsets: ["latin"],
-  variable: "--font-geist-mono",
-  display: "swap",
-})
-
-/* ─── Metadata ─── */
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://example.com"
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL ?? "https://samuelhoward.md"
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: "Marketing Site",
-    template: "%s | Marketing Site",
+    default: "Dr. Samuel Howard, D.O. — Orthopedic Surgery & Sports Medicine",
+    template: "%s | Dr. Samuel Howard, D.O.",
   },
   description:
-    "A modern marketing website built with Next.js, Tailwind CSS, and GSAP.",
+    "Board-certified orthopedic surgeon specializing in sports medicine, arthroscopy, and joint preservation. Performance-driven care for athletes and active patients.",
   openGraph: {
     type: "website",
     locale: "en_US",
     url: siteUrl,
-    siteName: "Marketing Site",
-    title: "Marketing Site",
+    siteName: "Dr. Samuel Howard, D.O.",
+    title: "Dr. Samuel Howard, D.O. — Orthopedic Surgery & Sports Medicine",
     description:
-      "A modern marketing website built with Next.js, Tailwind CSS, and GSAP.",
+      "Orthopedic surgery built around how you move. Sports medicine, arthroscopy, joint preservation.",
   },
-  twitter: {
-    card: "summary_large_image",
-  },
-  manifest: "/manifest.json",
-  icons: {
-    icon: [
-      {
-        url: "/icon-light-32x32.png",
-        media: "(prefers-color-scheme: light)",
-      },
-      {
-        url: "/icon-dark-32x32.png",
-        media: "(prefers-color-scheme: dark)",
-      },
-      {
-        url: "/icon.svg",
-        type: "image/svg+xml",
-      },
-    ],
-    apple: "/apple-icon.png",
-  },
+  twitter: { card: "summary_large_image" },
 }
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "#fafafa" },
-    { media: "(prefers-color-scheme: dark)", color: "#1a1a1a" },
-  ],
+  themeColor: "#1B2A4E",
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
-  children: React.ReactNode
-}>) {
+}: Readonly<{ children: React.ReactNode }>) {
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${geist.variable} ${geistMono.variable} bg-background`}
+      className={`${fraunces.variable} ${interTight.variable} bg-bone`}
     >
-      <body className="font-sans antialiased">
+      <body className="font-sans">
         <SmoothScrollProvider>
           <Header />
           <main>{children}</main>
