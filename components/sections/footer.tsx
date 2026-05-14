@@ -1,5 +1,4 @@
 import Link from "next/link"
-import { Logo } from "@/components/logo"
 import { PHONE_DISPLAY, PHONE_HREF } from "@/components/phone-cta"
 import { MapPin, Clock, Phone } from "lucide-react"
 
@@ -9,14 +8,11 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6 py-16">
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
-            <div className="flex items-center gap-3">
-              <Logo className="h-10 w-10 text-navy" />
-              <div className="leading-tight">
-                <p className="font-display text-lg text-ink">Samuel Howard, D.O.</p>
-                <p className="text-xs uppercase tracking-[0.18em] text-steel">
-                  Orthopedic Surgery
-                </p>
-              </div>
+            <div className="leading-tight">
+              <p className="font-display text-lg text-ink">Samuel Howard, D.O.</p>
+              <p className="mt-1 text-xs uppercase tracking-[0.18em] text-steel">
+                Orthopedic Surgery
+              </p>
             </div>
             <p className="mt-6 max-w-sm text-sm text-ink/70">
               Performance-driven orthopedic care for athletes and active patients.

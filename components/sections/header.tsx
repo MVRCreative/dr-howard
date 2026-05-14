@@ -4,7 +4,6 @@ import Link from "next/link"
 import { useState } from "react"
 import { Menu, X, Phone } from "lucide-react"
 import { PHONE_DISPLAY, PHONE_HREF, PhoneCTA } from "@/components/phone-cta"
-import { Logo } from "@/components/logo"
 
 const NAV = [
   { href: "/about", label: "About" },
@@ -19,13 +18,12 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 border-b border-hairline bg-bone/85 backdrop-blur-md">
       <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between px-6 md:h-20">
-        <Link href="/" className="flex items-center gap-3" aria-label="Dr. Samuel Howard, D.O. — Home">
-          <Logo className="h-9 w-9 text-navy" />
-          <div className="hidden flex-col leading-none sm:flex">
+        <Link href="/" className="flex items-center" aria-label="Dr. Samuel Howard, D.O. — Home">
+          <div className="flex flex-col leading-none">
             <span className="font-display text-base font-medium tracking-tight text-ink">
               Samuel Howard, D.O.
             </span>
-            <span className="text-[11px] uppercase tracking-[0.18em] text-steel">
+            <span className="mt-1 text-[11px] uppercase tracking-[0.18em] text-steel">
               Orthopedic Surgery
             </span>
           </div>
