@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { ArrowRight, Check } from "lucide-react"
 import { FadeInLines } from "@/components/fade-in-lines"
+import { FadeIn } from "@/components/scroll-reveal"
 
 export function Newsletter() {
   const [email, setEmail] = useState("")
@@ -16,18 +17,18 @@ export function Newsletter() {
             <FadeInLines as="h2" className="font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
               Quarterly recovery and <span className="italic text-navy">prevention insights.</span>
             </FadeInLines>
-            <p className="mt-4 max-w-lg text-ink/70">
+            <FadeIn as="p" delay={0.1} className="mt-4 max-w-lg text-ink/70">
               Four short emails a year. Written by Dr. Howard. No marketing &mdash;
               just the protocols and research we use ourselves.
-            </p>
+            </FadeIn>
           </div>
 
+          <FadeIn as="div" delay={0.2} y={16} className="md:col-span-5">
           <form
             onSubmit={(e) => {
               e.preventDefault()
               if (email) setDone(true)
             }}
-            className="md:col-span-5"
           >
             <label htmlFor="newsletter-email" className="sr-only">
               Email address
@@ -63,6 +64,7 @@ export function Newsletter() {
               Unsubscribe any time. We&apos;ll never share your address.
             </p>
           </form>
+          </FadeIn>
         </div>
       </div>
     </section>

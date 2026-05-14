@@ -1,5 +1,6 @@
 import { SectionLabel } from "@/components/section-label"
 import { FadeInLines } from "@/components/fade-in-lines"
+import { Stagger } from "@/components/scroll-reveal"
 
 const QUOTES = [
   {
@@ -25,7 +26,7 @@ export function Testimonials() {
           The work is measured in <span className="italic text-navy">comebacks.</span>
         </FadeInLines>
 
-        <div className="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">
+        <Stagger stagger={0.18} y={24} className="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">
           {QUOTES.map((q, i) => (
             <figure key={i} className="relative">
               <span
@@ -47,7 +48,7 @@ export function Testimonials() {
               </figcaption>
             </figure>
           ))}
-        </div>
+        </Stagger>
       </div>
     </section>
   )

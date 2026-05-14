@@ -3,6 +3,7 @@ import { CTASection } from "@/components/cta-section"
 import { SectionLabel } from "@/components/section-label"
 import { Download, FileText } from "lucide-react"
 import { FadeInLines } from "@/components/fade-in-lines"
+import { FadeIn, Stagger } from "@/components/scroll-reveal"
 
 export const metadata = {
   title: "Operative protocols & instructions",
@@ -116,13 +117,13 @@ export default function ProtocolsPage() {
           <FadeInLines as="h1" className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
             {'Operative protocols & instructions.'}
           </FadeInLines>
-          <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/80">
+          <FadeIn as="p" delay={0.15} className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/80">
             Compliance with pre- and post-operative instructions is the single
             largest predictor of a successful outcome &mdash; larger than the
             procedure itself in most cases. Read the relevant section in full.
             Print it. Keep it visible at home. If anything is unclear, call the
             office before your surgery, not after.
-          </p>
+          </FadeIn>
         </div>
       </section>
 
@@ -134,7 +135,7 @@ export default function ProtocolsPage() {
               <p className="text-xs uppercase tracking-[0.18em] text-steel">
                 Contents
               </p>
-              <ol className="mt-5 space-y-3 border-t border-hairline pt-5">
+              <Stagger as="ol" stagger={0.08} y={10} className="mt-5 space-y-3 border-t border-hairline pt-5">
                 {SECTIONS.map((s) => (
                   <li key={s.id}>
                     <a
@@ -148,7 +149,7 @@ export default function ProtocolsPage() {
                     </a>
                   </li>
                 ))}
-              </ol>
+              </Stagger>
             </div>
           </aside>
 
@@ -171,7 +172,7 @@ export default function ProtocolsPage() {
                   {section.summary}
                 </p>
 
-                <div className="mt-10 divide-y divide-hairline border-y border-hairline">
+                <Stagger stagger={0.1} y={16} className="mt-10 divide-y divide-hairline border-y border-hairline">
                   {section.blocks.map((b) => (
                     <div
                       key={b.heading}
@@ -186,7 +187,7 @@ export default function ProtocolsPage() {
                       />
                     </div>
                   ))}
-                </div>
+                </Stagger>
 
                 <a
                   href="#"

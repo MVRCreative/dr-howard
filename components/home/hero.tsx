@@ -4,6 +4,7 @@ import { ArrowDown } from "lucide-react"
 import { PhoneCTA } from "@/components/phone-cta"
 import { SectionLabel } from "@/components/section-label"
 import { FadeInLines } from "@/components/fade-in-lines"
+import { FadeIn, Stagger } from "@/components/scroll-reveal"
 
 export function Hero() {
   return (
@@ -43,15 +44,18 @@ export function Hero() {
             </Link>
           </div>
 
-          <dl className="mt-16 grid max-w-md grid-cols-3 gap-6 border-t border-hairline pt-8">
+          <Stagger
+            as="dl"
+            className="mt-16 grid max-w-md grid-cols-3 gap-6 border-t border-hairline pt-8"
+          >
             <Stat value="18" label="Years of practice" />
             <Stat value="4.2k+" label="Procedures" />
             <Stat value="98%" label="Return to sport" />
-          </dl>
+          </Stagger>
         </div>
 
         <div className="md:col-span-5 lg:col-span-5">
-          <div className="relative">
+          <FadeIn className="relative" y={24} duration={1.1} delay={0.15}>
             <div className="absolute -inset-2 border border-navy/30" aria-hidden />
             <div className="relative aspect-[4/5] overflow-hidden bg-bone-muted">
               <Image
@@ -71,7 +75,7 @@ export function Hero() {
                 Board-certified, AOA
               </p>
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

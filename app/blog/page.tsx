@@ -4,6 +4,7 @@ import { POSTS } from "@/lib/posts"
 import { SectionLabel } from "@/components/section-label"
 import { Newsletter } from "@/components/newsletter"
 import { FadeInLines } from "@/components/fade-in-lines"
+import { FadeIn, Stagger } from "@/components/scroll-reveal"
 
 export const metadata = {
   title: "Field notes",
@@ -31,6 +32,7 @@ export default function BlogIndexPage() {
 
       <section className="border-b border-hairline">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
+          <FadeIn y={20} duration={1}>
           <Link href={`/blog/${featured.slug}`} className="group block">
             <div className="grid gap-10 md:grid-cols-12 md:gap-12">
               <div className="md:col-span-7">
@@ -66,12 +68,13 @@ export default function BlogIndexPage() {
               </div>
             </div>
           </Link>
+          </FadeIn>
         </div>
       </section>
 
       <section className="border-b border-hairline">
         <div className="mx-auto max-w-7xl px-6 py-16 md:py-20">
-          <div className="grid gap-10 md:grid-cols-3 md:gap-10">
+          <Stagger stagger={0.12} y={20} className="grid gap-10 md:grid-cols-3 md:gap-10">
             {rest.map((post) => (
               <Link
                 key={post.slug}
@@ -101,7 +104,7 @@ export default function BlogIndexPage() {
                 />
               </Link>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 

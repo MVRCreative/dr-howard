@@ -4,6 +4,7 @@ import { ArrowUpRight } from "lucide-react"
 import { POSTS } from "@/lib/posts"
 import { SectionLabel } from "@/components/section-label"
 import { FadeInLines } from "@/components/fade-in-lines"
+import { FadeIn, Stagger } from "@/components/scroll-reveal"
 
 export function BlogPreview() {
   const [featured, ...rest] = POSTS.slice(0, 3)
@@ -27,9 +28,10 @@ export function BlogPreview() {
         </div>
 
         <div className="mt-12 grid gap-10 md:grid-cols-12 md:gap-12">
+          <FadeIn as="div" className="md:col-span-7" y={20} duration={1}>
           <Link
             href={`/blog/${featured.slug}`}
-            className="group md:col-span-7"
+            className="group block"
           >
             <div className="relative aspect-[5/4] overflow-hidden bg-bone-muted md:aspect-[6/5]">
               <Image
@@ -49,8 +51,9 @@ export function BlogPreview() {
               {featured.title}
             </h3>
           </Link>
+          </FadeIn>
 
-          <div className="md:col-span-5 md:divide-y md:divide-hairline md:border-t md:border-hairline">
+          <Stagger stagger={0.12} y={18} className="md:col-span-5 md:divide-y md:divide-hairline md:border-t md:border-hairline">
             {rest.map((p) => (
               <Link
                 key={p.slug}
@@ -70,7 +73,7 @@ export function BlogPreview() {
                 </p>
               </Link>
             ))}
-          </div>
+          </Stagger>
         </div>
       </div>
     </section>

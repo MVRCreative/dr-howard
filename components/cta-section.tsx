@@ -1,5 +1,6 @@
 import { PhoneCTA, PHONE_DISPLAY } from "@/components/phone-cta"
 import { FadeInLines } from "@/components/fade-in-lines"
+import { FadeIn } from "@/components/scroll-reveal"
 
 export function CTASection({
   eyebrow = "Ready when you are",
@@ -21,13 +22,16 @@ export function CTASection({
             <FadeInLines as="h2" className="mt-6 font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-6xl lg:text-7xl">
               {title}
             </FadeInLines>
-            <p
+            <FadeIn
+              as="p"
+              delay={0.1}
               className="mt-6 max-w-xl text-lg text-bone/80"
-              dangerouslySetInnerHTML={{ __html: body }}
-            />
+            >
+              <span dangerouslySetInnerHTML={{ __html: body }} />
+            </FadeIn>
           </div>
 
-          <div className="md:col-span-5 md:text-right">
+          <FadeIn as="div" delay={0.25} y={20} className="md:col-span-5 md:text-right">
             <p className="text-xs uppercase tracking-[0.22em] text-bone/60">
               Call the office
             </p>
@@ -40,7 +44,7 @@ export function CTASection({
             <div className="mt-6 md:flex md:justify-end">
               <PhoneCTA variant="inverted" size="lg" label="Tap to call" />
             </div>
-          </div>
+          </FadeIn>
         </div>
       </div>
     </section>

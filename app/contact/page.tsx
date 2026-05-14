@@ -3,6 +3,7 @@ import { SectionLabel } from "@/components/section-label"
 import { PHONE_DISPLAY, PHONE_HREF, PhoneCTA } from "@/components/phone-cta"
 import { MapPin, Clock, Car, ShieldCheck } from "lucide-react"
 import { FadeInLines } from "@/components/fade-in-lines"
+import { FadeIn, Stagger } from "@/components/scroll-reveal"
 
 export const metadata = {
   title: "Call the office",
@@ -75,13 +76,15 @@ export default function ContactPage() {
             The fastest way to schedule. No form to fill out, no waiting on email.
           </p>
 
-          <a
-            href={PHONE_HREF}
-            className="mt-12 block font-display text-6xl font-medium tracking-tight tabular text-navy hover:text-ink sm:text-7xl md:text-[6rem] lg:text-[7rem]"
-            aria-label={`Call ${PHONE_DISPLAY}`}
-          >
-            {PHONE_DISPLAY}
-          </a>
+          <FadeIn as="div" delay={0.2} y={20} duration={1}>
+            <a
+              href={PHONE_HREF}
+              className="mt-12 block font-display text-6xl font-medium tracking-tight tabular text-navy hover:text-ink sm:text-7xl md:text-[6rem] lg:text-[7rem]"
+              aria-label={`Call ${PHONE_DISPLAY}`}
+            >
+              {PHONE_DISPLAY}
+            </a>
+          </FadeIn>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-2 text-sm text-steel">
             <p className="flex items-center gap-2">
@@ -106,7 +109,7 @@ export default function ContactPage() {
             On the call.
           </FadeInLines>
 
-          <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
+          <Stagger as="ol" stagger={0.14} y={20} className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
             {CALL_STEPS.map((s) => (
               <li key={s.n}>
                 <div className="flex h-12 w-12 items-center justify-center border border-navy bg-bone font-mono text-sm tabular text-navy">
@@ -122,7 +125,7 @@ export default function ContactPage() {
                 />
               </li>
             ))}
-          </ol>
+          </Stagger>
         </div>
       </section>
 
@@ -134,7 +137,7 @@ export default function ContactPage() {
               Where to find us.
             </FadeInLines>
 
-            <ul className="mt-10 space-y-7 text-ink/85">
+            <Stagger as="ul" stagger={0.1} y={14} className="mt-10 space-y-7 text-ink/85">
               <li className="flex gap-4">
                 <MapPin className="mt-1 h-5 w-5 shrink-0 text-navy" />
                 <div>
@@ -174,7 +177,7 @@ export default function ContactPage() {
                   </p>
                 </div>
               </li>
-            </ul>
+            </Stagger>
           </div>
 
           <div>
@@ -187,7 +190,7 @@ export default function ContactPage() {
               your specific plan before your first visit.
             </p>
 
-            <ul className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
+            <Stagger as="ul" stagger={0.06} y={10} className="mt-10 grid grid-cols-1 gap-3 sm:grid-cols-2">
               {INSURANCE.map((p) => (
                 <li
                   key={p}
@@ -200,7 +203,7 @@ export default function ContactPage() {
                   />
                 </li>
               ))}
-            </ul>
+            </Stagger>
           </div>
         </div>
       </section>

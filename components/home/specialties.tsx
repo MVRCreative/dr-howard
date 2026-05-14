@@ -1,6 +1,7 @@
 import { Activity, Bone, ScanLine, RotateCw } from "lucide-react"
 import { SectionLabel } from "@/components/section-label"
 import { FadeInLines } from "@/components/fade-in-lines"
+import { Stagger } from "@/components/scroll-reveal"
 
 const SPECIALTIES = [
   {
@@ -44,7 +45,7 @@ export function Specialties() {
           </div>
 
           <div className="md:col-span-8">
-            <ul className="divide-y divide-hairline border-y border-hairline">
+            <Stagger as="ul" stagger={0.12} y={24} className="divide-y divide-hairline border-y border-hairline">
               {SPECIALTIES.map((s, i) => {
                 const Icon = s.icon
                 const alignRight = i % 2 === 1
@@ -81,7 +82,7 @@ export function Specialties() {
                   </li>
                 )
               })}
-            </ul>
+            </Stagger>
           </div>
         </div>
       </div>

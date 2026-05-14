@@ -8,6 +8,7 @@ import {
 } from "@/components/ui/accordion"
 import { SectionLabel } from "@/components/section-label"
 import { FadeInLines } from "@/components/fade-in-lines"
+import { Stagger } from "@/components/scroll-reveal"
 
 interface FAQ {
   q: string
@@ -42,7 +43,13 @@ export function FAQSection({
             </FadeInLines>
           </div>
 
-          <div className="md:col-span-8">
+          <Stagger
+            as="div"
+            stagger={0.08}
+            y={14}
+            selector="[data-slot='accordion-item']"
+            className="md:col-span-8"
+          >
             <Accordion type="single" collapsible className="border-t border-hairline">
               {items.map((item, i) => (
                 <AccordionItem
@@ -59,7 +66,7 @@ export function FAQSection({
                 </AccordionItem>
               ))}
             </Accordion>
-          </div>
+          </Stagger>
         </div>
       </div>
     </section>

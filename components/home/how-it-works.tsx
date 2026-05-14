@@ -1,5 +1,6 @@
 import { SectionLabel } from "@/components/section-label"
 import { FadeInLines } from "@/components/fade-in-lines"
+import { Stagger } from "@/components/scroll-reveal"
 
 const STEPS = [
   {
@@ -35,7 +36,7 @@ export function HowItWorks() {
           </p>
         </div>
 
-        <ol className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+        <Stagger as="ol" stagger={0.14} y={20} className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
           {STEPS.map((step, i) => (
             <li key={step.n} className="relative">
               {i < STEPS.length - 1 && (
@@ -57,7 +58,7 @@ export function HowItWorks() {
               />
             </li>
           ))}
-        </ol>
+        </Stagger>
       </div>
     </section>
   )

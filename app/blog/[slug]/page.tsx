@@ -6,6 +6,7 @@ import { Newsletter } from "@/components/newsletter"
 import { CTASection } from "@/components/cta-section"
 import { ArrowLeft } from "lucide-react"
 import { FadeInLines } from "@/components/fade-in-lines"
+import { FadeIn, Stagger } from "@/components/scroll-reveal"
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }))
@@ -88,30 +89,33 @@ export default async function BlogPostPage({
         </div>
 
         <div className="mx-auto max-w-2xl px-6 py-16 md:py-20">
-          {post.body.map((para, i) => (
-            <p
-              key={i}
-              className={`mb-7 text-lg leading-[1.75] text-ink/85 ${
-                i === 0 ? "dropcap" : ""
-              }`}
-              dangerouslySetInnerHTML={{ __html: para }}
-            />
-          ))}
+          <Stagger stagger={0.08} y={14}>
+            {post.body.map((para, i) => (
+              <p
+                key={i}
+                className={`mb-7 text-lg leading-[1.75] text-ink/85 ${
+                  i === 0 ? "dropcap" : ""
+                }`}
+                dangerouslySetInnerHTML={{ __html: para }}
+              />
+            ))}
+          </Stagger>
 
-          <blockquote className="my-12 border-l-2 border-navy py-2 pl-6 font-display text-2xl font-normal leading-snug tracking-tight text-ink text-balance md:text-3xl">
+          <FadeInLines as="blockquote" className="my-12 border-l-2 border-navy py-2 pl-6 font-display text-2xl font-normal leading-snug tracking-tight text-ink text-balance md:text-3xl">
             The work that matters happens in the months before and after the
             operation &mdash; not just on the table.
-          </blockquote>
+          </FadeInLines>
 
           {post.body.slice(0, 1).map((_, i) => (
-            <p
+            <FadeIn
+              as="p"
               key={`closing-${i}`}
               className="mt-7 text-lg leading-[1.75] text-ink/85"
             >
               If you have a question about anything in this post, the office line
               is the fastest way to reach the team. We&apos;re happy to talk
               through it.
-            </p>
+            </FadeIn>
           ))}
         </div>
       </article>
@@ -121,7 +125,7 @@ export default async function BlogPostPage({
           <p className="text-xs uppercase tracking-[0.18em] text-steel">
             Related notes
           </p>
-          <div className="mt-8 grid gap-10 md:grid-cols-2 md:gap-12">
+          <Stagger stagger={0.12} y={16} className="mt-8 grid gap-10 md:grid-cols-2 md:gap-12">
             {related.map((p) => (
               <Link
                 key={p.slug}
@@ -147,7 +151,7 @@ export default async function BlogPostPage({
                 </div>
               </Link>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 

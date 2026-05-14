@@ -3,6 +3,7 @@ import { CTASection } from "@/components/cta-section"
 import { SectionLabel } from "@/components/section-label"
 import { Award } from "lucide-react"
 import { FadeInLines } from "@/components/fade-in-lines"
+import { FadeIn, Stagger } from "@/components/scroll-reveal"
 
 export const metadata = {
   title: "About Dr. Samuel Howard, D.O.",
@@ -48,17 +49,17 @@ export default function AboutPage() {
           <FadeInLines as="h1" className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
             Samuel Howard, <span className="italic text-navy">D.O.</span>
           </FadeInLines>
-          <p className="mt-6 max-w-2xl text-xl text-ink/75 md:text-2xl">
+          <FadeIn as="p" delay={0.15} className="mt-6 max-w-2xl text-xl text-ink/75 md:text-2xl">
             Fellowship-trained orthopedic surgeon. Sports medicine, arthroscopy,
             and joint preservation for patients who measure outcomes in performance.
-          </p>
+          </FadeIn>
         </div>
       </section>
 
       <section className="border-b border-hairline">
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-12 md:py-28">
           <div className="md:col-span-5">
-            <div className="relative">
+            <FadeIn className="relative" y={20} duration={1}>
               <div className="absolute -inset-2 border border-navy/30" aria-hidden />
               <div className="relative aspect-[4/5] overflow-hidden bg-bone-muted">
                 <Image
@@ -69,7 +70,7 @@ export default function AboutPage() {
                   sizes="(min-width: 768px) 40vw, 100vw"
                 />
               </div>
-            </div>
+            </FadeIn>
           </div>
 
           <div className="md:col-span-7">
@@ -78,7 +79,7 @@ export default function AboutPage() {
               A practice shaped by the locker room and the operating room.
             </FadeInLines>
 
-            <div className="mt-8 space-y-5 text-lg leading-relaxed text-ink/80">
+            <Stagger stagger={0.12} y={16} className="mt-8 space-y-5 text-lg leading-relaxed text-ink/80">
               <p>
                 I came to orthopedics through sport. Four years as a Division I
                 wrestler taught me what a hurt shoulder feels like at 6 a.m. on a
@@ -107,7 +108,7 @@ export default function AboutPage() {
                 measure success by whether you got back to doing what you wanted to
                 do &mdash; not by whether the procedure went smoothly.
               </p>
-            </div>
+            </Stagger>
           </div>
         </div>
       </section>
@@ -119,7 +120,7 @@ export default function AboutPage() {
             The people you&apos;ll actually talk to.
           </FadeInLines>
 
-          <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
+          <Stagger stagger={0.14} y={20} className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
             {TEAM.map((member, i) => (
               <div
                 key={member.name}
@@ -137,7 +138,7 @@ export default function AboutPage() {
                 <p className="mt-4 text-ink/75">{member.detail}</p>
               </div>
             ))}
-          </div>
+          </Stagger>
         </div>
       </section>
 
@@ -148,7 +149,7 @@ export default function AboutPage() {
             Board-certified. Continually accredited.
           </FadeInLines>
 
-          <ul className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
+          <Stagger as="ul" stagger={0.07} y={12} className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
             {CREDENTIALS.map((c) => (
               <li
                 key={c}
@@ -158,7 +159,7 @@ export default function AboutPage() {
                 <span className="text-sm leading-snug text-ink">{c}</span>
               </li>
             ))}
-          </ul>
+          </Stagger>
         </div>
       </section>
 
@@ -168,11 +169,11 @@ export default function AboutPage() {
             <span className="font-display text-7xl leading-none text-navy/20" aria-hidden>
               &ldquo;
             </span>
-            <blockquote className="font-display text-3xl font-normal leading-snug tracking-tight text-ink text-balance md:text-4xl">
+            <FadeInLines as="blockquote" className="font-display text-3xl font-normal leading-snug tracking-tight text-ink text-balance md:text-4xl">
               Dr. Howard fixed a labral tear three other surgeons told me I&apos;d have
               to live with. Two years later I&apos;m climbing harder than I was before
               the injury.
-            </blockquote>
+            </FadeInLines>
             <figcaption className="mt-8 flex items-center justify-center gap-3 text-sm text-steel">
               <span className="text-ink">James</span>
               <span className="h-1 w-1 rounded-full bg-steel" />
