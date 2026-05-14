@@ -1,4 +1,5 @@
 import { SectionLabel } from "@/components/section-label"
+import { FadeInLines } from "@/components/fade-in-lines"
 
 const STEPS = [
   {
@@ -25,9 +26,9 @@ export function HowItWorks() {
         <div className="md:flex md:items-end md:justify-between">
           <div>
             <SectionLabel number="04">How it works</SectionLabel>
-            <h2 className="mt-6 max-w-2xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
+            <FadeInLines as="h2" className="mt-6 max-w-2xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
               From phone call to <span className="italic text-navy">recovery plan.</span>
-            </h2>
+            </FadeInLines>
           </div>
           <p className="mt-6 max-w-sm text-ink/70 md:mt-0">
             A straightforward path, designed to respect your time and your training.

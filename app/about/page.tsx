@@ -2,6 +2,7 @@ import Image from "next/image"
 import { CTASection } from "@/components/cta-section"
 import { SectionLabel } from "@/components/section-label"
 import { Award } from "lucide-react"
+import { FadeInLines } from "@/components/fade-in-lines"
 
 export const metadata = {
   title: "About Dr. Samuel Howard, D.O.",
@@ -44,9 +45,9 @@ export default function AboutPage() {
       <section className="border-b border-hairline">
         <div className="mx-auto max-w-7xl px-6 pb-16 pt-14 md:pb-24 md:pt-20">
           <SectionLabel>About the practice</SectionLabel>
-          <h1 className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
+          <FadeInLines as="h1" className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
             Samuel Howard, <span className="italic text-navy">D.O.</span>
-          </h1>
+          </FadeInLines>
           <p className="mt-6 max-w-2xl text-xl text-ink/75 md:text-2xl">
             Fellowship-trained orthopedic surgeon. Sports medicine, arthroscopy,
             and joint preservation for patients who measure outcomes in performance.
@@ -61,7 +62,7 @@ export default function AboutPage() {
               <div className="absolute -inset-2 border border-navy/30" aria-hidden />
               <div className="relative aspect-[4/5] overflow-hidden bg-bone-muted">
                 <Image
-                  src="/orthopedic-surgeon-in-clinic-portrait--editorial.jpg"
+                  src="/sam-howard.png"
                   alt="Dr. Samuel Howard in his clinic"
                   fill
                   className="object-cover"
@@ -73,9 +74,9 @@ export default function AboutPage() {
 
           <div className="md:col-span-7">
             <SectionLabel number="01">Background</SectionLabel>
-            <h2 className="mt-6 font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
+            <FadeInLines as="h2" className="mt-6 font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
               A practice shaped by the locker room and the operating room.
-            </h2>
+            </FadeInLines>
 
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-ink/80">
               <p>
@@ -114,9 +115,9 @@ export default function AboutPage() {
       <section className="border-b border-hairline bg-bone-muted/40">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <SectionLabel number="02">The team</SectionLabel>
-          <h2 className="mt-6 max-w-2xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
+          <FadeInLines as="h2" className="mt-6 max-w-2xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
             The people you&apos;ll actually talk to.
-          </h2>
+          </FadeInLines>
 
           <div className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
             {TEAM.map((member, i) => (
@@ -143,9 +144,9 @@ export default function AboutPage() {
       <section className="border-b border-hairline">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
           <SectionLabel number="03">Credentials & memberships</SectionLabel>
-          <h2 className="mt-6 max-w-3xl font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
+          <FadeInLines as="h2" className="mt-6 max-w-3xl font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
             Board-certified. Continually accredited.
-          </h2>
+          </FadeInLines>
 
           <ul className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
             {CREDENTIALS.map((c) => (

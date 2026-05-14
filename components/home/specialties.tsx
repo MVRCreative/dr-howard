@@ -1,5 +1,6 @@
 import { Activity, Bone, ScanLine, RotateCw } from "lucide-react"
 import { SectionLabel } from "@/components/section-label"
+import { FadeInLines } from "@/components/fade-in-lines"
 
 const SPECIALTIES = [
   {
@@ -31,11 +32,11 @@ export function Specialties() {
         <div className="grid gap-10 md:grid-cols-12">
           <div className="md:col-span-4">
             <SectionLabel number="02">Specialties</SectionLabel>
-            <h2 className="mt-6 font-display text-4xl font-medium leading-[1.05] tracking-tight text-ink text-balance md:text-5xl">
+            <FadeInLines as="h2" className="mt-6 font-display text-4xl font-medium leading-[1.05] tracking-tight text-ink text-balance md:text-5xl">
               A focused practice.
               <br />
               <span className="italic text-navy">A deeper bench.</span>
-            </h2>
+            </FadeInLines>
             <p className="mt-6 max-w-sm text-ink/70">
               Sub-specialty fellowship training means fewer procedures, performed
               more often. Below is what Dr. Howard treats every week.

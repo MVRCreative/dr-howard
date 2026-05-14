@@ -5,6 +5,7 @@ import { POSTS, getPost } from "@/lib/posts"
 import { Newsletter } from "@/components/newsletter"
 import { CTASection } from "@/components/cta-section"
 import { ArrowLeft } from "lucide-react"
+import { FadeInLines } from "@/components/fade-in-lines"
 
 export function generateStaticParams() {
   return POSTS.map((p) => ({ slug: p.slug }))
@@ -54,9 +55,9 @@ export default async function BlogPostPage({
             <span>{post.readTime}</span>
           </div>
 
-          <h1 className="mt-6 font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-6xl">
+          <FadeInLines as="h1" className="mt-6 font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-6xl">
             {post.title}
-          </h1>
+          </FadeInLines>
 
           <p className="mt-6 max-w-2xl text-lg text-ink/70">
             <span dangerouslySetInnerHTML={{ __html: post.excerpt }} />

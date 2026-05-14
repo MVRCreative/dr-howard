@@ -3,6 +3,7 @@ import Link from "next/link"
 import { POSTS } from "@/lib/posts"
 import { SectionLabel } from "@/components/section-label"
 import { Newsletter } from "@/components/newsletter"
+import { FadeInLines } from "@/components/fade-in-lines"
 
 export const metadata = {
   title: "Field notes",
@@ -18,9 +19,9 @@ export default function BlogIndexPage() {
       <section className="border-b border-hairline">
         <div className="mx-auto max-w-7xl px-6 pb-12 pt-14 md:pb-16 md:pt-20">
           <SectionLabel>Field notes</SectionLabel>
-          <h1 className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
+          <FadeInLines as="h1" className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
             Writing from the practice.
-          </h1>
+          </FadeInLines>
           <p className="mt-6 max-w-2xl text-lg text-ink/75">
             Clinical observations, evidence reviews, and the occasional honest
             take on what the orthopedic literature gets wrong.
@@ -52,9 +53,9 @@ export default function BlogIndexPage() {
                   <span className="h-1 w-1 rounded-full bg-steel" />
                   <span>{featured.date}</span>
                 </div>
-                <h2 className="mt-4 font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance group-hover:text-navy md:text-5xl">
+                <FadeInLines as="h2" className="mt-4 font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance group-hover:text-navy md:text-5xl">
                   {featured.title}
-                </h2>
+                </FadeInLines>
                 <p
                   className="mt-5 text-lg text-ink/75"
                   dangerouslySetInnerHTML={{ __html: featured.excerpt }}

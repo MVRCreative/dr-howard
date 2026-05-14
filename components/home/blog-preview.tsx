@@ -3,6 +3,7 @@ import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { POSTS } from "@/lib/posts"
 import { SectionLabel } from "@/components/section-label"
+import { FadeInLines } from "@/components/fade-in-lines"
 
 export function BlogPreview() {
   const [featured, ...rest] = POSTS.slice(0, 3)
@@ -13,9 +14,9 @@ export function BlogPreview() {
         <div className="flex flex-wrap items-end justify-between gap-6">
           <div>
             <SectionLabel number="07">Field notes</SectionLabel>
-            <h2 className="mt-6 max-w-2xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
+            <FadeInLines as="h2" className="mt-6 max-w-2xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
               Writing from the practice.
-            </h2>
+            </FadeInLines>
           </div>
           <Link
             href="/blog"

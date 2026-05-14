@@ -7,6 +7,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { SectionLabel } from "@/components/section-label"
+import { FadeInLines } from "@/components/fade-in-lines"
 
 interface FAQ {
   q: string
@@ -32,13 +33,13 @@ export function FAQSection({
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
             <SectionLabel number={number}>{label}</SectionLabel>
-            <h2 className="mt-6 font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
+            <FadeInLines as="h2" className="mt-6 font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
               {title ?? (
                 <>
                   Questions, <span className="italic text-navy">answered.</span>
                 </>
               )}
-            </h2>
+            </FadeInLines>
           </div>
 
           <div className="md:col-span-8">

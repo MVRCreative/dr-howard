@@ -1,4 +1,5 @@
 import { PhoneCTA, PHONE_DISPLAY } from "@/components/phone-cta"
+import { FadeInLines } from "@/components/fade-in-lines"
 
 export function CTASection({
   eyebrow = "Ready when you are",
@@ -17,9 +18,9 @@ export function CTASection({
             <span className="text-xs font-medium uppercase tracking-[0.22em] text-bone/70">
               {eyebrow}
             </span>
-            <h2 className="mt-6 font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-6xl lg:text-7xl">
+            <FadeInLines as="h2" className="mt-6 font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-6xl lg:text-7xl">
               {title}
-            </h2>
+            </FadeInLines>
             <p
               className="mt-6 max-w-xl text-lg text-bone/80"
               dangerouslySetInnerHTML={{ __html: body }}

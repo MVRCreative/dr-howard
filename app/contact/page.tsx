@@ -2,6 +2,7 @@ import { FAQSection } from "@/components/faq-section"
 import { SectionLabel } from "@/components/section-label"
 import { PHONE_DISPLAY, PHONE_HREF, PhoneCTA } from "@/components/phone-cta"
 import { MapPin, Clock, Car, ShieldCheck } from "lucide-react"
+import { FadeInLines } from "@/components/fade-in-lines"
 
 export const metadata = {
   title: "Call the office",
@@ -67,9 +68,9 @@ export default function ContactPage() {
       <section className="border-b border-hairline">
         <div className="mx-auto max-w-7xl px-6 pb-16 pt-14 text-center md:pb-24 md:pt-20">
           <SectionLabel className="justify-center">Call the office</SectionLabel>
-          <h1 className="mt-8 font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
+          <FadeInLines as="h1" className="mt-8 font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
             Call the office.
-          </h1>
+          </FadeInLines>
           <p className="mx-auto mt-6 max-w-xl text-lg text-ink/75">
             The fastest way to schedule. No form to fill out, no waiting on email.
           </p>
@@ -101,9 +102,9 @@ export default function ContactPage() {
       <section className="border-b border-hairline">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
           <SectionLabel number="01">What to expect</SectionLabel>
-          <h2 className="mt-6 max-w-2xl font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
+          <FadeInLines as="h2" className="mt-6 max-w-2xl font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
             On the call.
-          </h2>
+          </FadeInLines>
 
           <ol className="mt-12 grid gap-10 md:grid-cols-3 md:gap-8">
             {CALL_STEPS.map((s) => (
@@ -129,9 +130,9 @@ export default function ContactPage() {
         <div className="mx-auto grid max-w-7xl gap-12 px-6 py-20 md:grid-cols-2 md:py-28">
           <div>
             <SectionLabel number="02">The office</SectionLabel>
-            <h2 className="mt-6 font-display text-3xl font-medium leading-tight tracking-tight md:text-4xl">
+            <FadeInLines as="h2" className="mt-6 font-display text-3xl font-medium leading-tight tracking-tight md:text-4xl">
               Where to find us.
-            </h2>
+            </FadeInLines>
 
             <ul className="mt-10 space-y-7 text-ink/85">
               <li className="flex gap-4">
@@ -178,9 +179,9 @@ export default function ContactPage() {
 
           <div>
             <SectionLabel number="03">Insurance</SectionLabel>
-            <h2 className="mt-6 font-display text-3xl font-medium leading-tight tracking-tight md:text-4xl">
+            <FadeInLines as="h2" className="mt-6 font-display text-3xl font-medium leading-tight tracking-tight md:text-4xl">
               Plans we accept.
-            </h2>
+            </FadeInLines>
             <p className="mt-5 max-w-md text-ink/75">
               Most major commercial plans, Medicare, and Tricare. Call to verify
               your specific plan before your first visit.

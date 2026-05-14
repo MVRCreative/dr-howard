@@ -1,4 +1,5 @@
 import { SectionLabel } from "@/components/section-label"
+import { FadeInLines } from "@/components/fade-in-lines"
 
 const QUOTES = [
   {
@@ -20,9 +21,9 @@ export function Testimonials() {
     <section className="border-b border-hairline">
       <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <SectionLabel number="03">In their words</SectionLabel>
-        <h2 className="mt-6 max-w-3xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
+        <FadeInLines as="h2" className="mt-6 max-w-3xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
           The work is measured in <span className="italic text-navy">comebacks.</span>
-        </h2>
+        </FadeInLines>
 
         <div className="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">
           {QUOTES.map((q, i) => (

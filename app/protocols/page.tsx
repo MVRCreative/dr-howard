@@ -2,6 +2,7 @@ import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { SectionLabel } from "@/components/section-label"
 import { Download, FileText } from "lucide-react"
+import { FadeInLines } from "@/components/fade-in-lines"
 
 export const metadata = {
   title: "Operative protocols & instructions",
@@ -112,9 +113,9 @@ export default function ProtocolsPage() {
       <section className="border-b border-hairline">
         <div className="mx-auto max-w-7xl px-6 pb-16 pt-14 md:pb-24 md:pt-20">
           <SectionLabel>Clinical protocols</SectionLabel>
-          <h1 className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
-            Operative protocols & instructions.
-          </h1>
+          <FadeInLines as="h1" className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
+            {'Operative protocols & instructions.'}
+          </FadeInLines>
           <p className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/80">
             Compliance with pre- and post-operative instructions is the single
             largest predictor of a successful outcome &mdash; larger than the
@@ -162,9 +163,9 @@ export default function ProtocolsPage() {
                   <span className="font-mono text-sm tabular text-navy/60">
                     {section.n}
                   </span>
-                  <h2 className="font-display text-4xl font-medium leading-tight tracking-tight text-balance md:text-5xl">
+                  <FadeInLines as="h2" className="font-display text-4xl font-medium leading-tight tracking-tight text-balance md:text-5xl">
                     {section.title}
-                  </h2>
+                  </FadeInLines>
                 </div>
                 <p className="mt-6 max-w-2xl text-lg leading-relaxed text-ink/75">
                   {section.summary}

@@ -2,6 +2,7 @@
 
 import { useState } from "react"
 import { ArrowRight, Check } from "lucide-react"
+import { FadeInLines } from "@/components/fade-in-lines"
 
 export function Newsletter() {
   const [email, setEmail] = useState("")
@@ -12,9 +13,9 @@ export function Newsletter() {
       <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
         <div className="grid gap-10 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
-            <h2 className="font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
+            <FadeInLines as="h2" className="font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
               Quarterly recovery and <span className="italic text-navy">prevention insights.</span>
-            </h2>
+            </FadeInLines>
             <p className="mt-4 max-w-lg text-ink/70">
               Four short emails a year. Written by Dr. Howard. No marketing &mdash;
               just the protocols and research we use ourselves.
