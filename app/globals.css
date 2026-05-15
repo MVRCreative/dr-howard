@@ -6,7 +6,8 @@
 /* ─── Design Tokens ─── */
 :root {
   /* Brand */
-  --navy: oklch(54.6% 0.245 262.881);
+  --navy: #1b2a4e;
+  --accent: oklch(54.6% 0.245 262.881);
   --steel: #6b7280;
   --bone: #f7f6f2;
   --ink: #0f1419;
@@ -46,6 +47,7 @@
 
   /* Brand colors as utilities */
   --color-navy: var(--navy);
+  --color-accent: var(--accent);
   --color-steel: var(--steel);
   --color-bone: var(--bone);
   --color-bone-muted: var(--bone-muted);

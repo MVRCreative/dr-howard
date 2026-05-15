@@ -18,7 +18,7 @@ export function Hero() {
             className="mt-8 font-display text-[2.75rem] font-medium leading-[1.02] tracking-tight text-ink text-balance sm:text-6xl lg:text-7xl"
           >
             Orthopedic surgery built around{" "}
-            <span className="italic text-navy">how you move.</span>
+            <span className="italic text-accent">how you move.</span>
           </FadeInLines>
 
           <FadeInLines

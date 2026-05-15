@@ -36,7 +36,7 @@ export function Specialties() {
             <FadeInLines as="h2" className="mt-6 font-display text-4xl font-medium leading-[1.05] tracking-tight text-ink text-balance md:text-5xl">
               A focused practice.
               <br />
-              <span className="italic text-navy">A deeper bench.</span>
+              <span className="italic text-accent">A deeper bench.</span>
             </FadeInLines>
             <p className="mt-6 max-w-sm text-ink/70">
               Sub-specialty fellowship training means fewer procedures, performed
