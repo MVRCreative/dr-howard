@@ -22,13 +22,12 @@ export function CTASection({
             <FadeInLines as="h2" className="mt-6 font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-6xl lg:text-7xl">
               {title}
             </FadeInLines>
-            <FadeIn
+            <FadeInLines
               as="p"
-              delay={0.1}
               className="mt-6 max-w-xl text-lg text-bone/80"
             >
               <span dangerouslySetInnerHTML={{ __html: body }} />
-            </FadeIn>
+            </FadeInLines>
           </div>
 
           <FadeIn as="div" delay={0.25} y={20} className="md:col-span-5 md:text-right">

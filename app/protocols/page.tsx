@@ -117,13 +117,13 @@ export default function ProtocolsPage() {
           <FadeInLines as="h1" className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
             {'Operative protocols & instructions.'}
           </FadeInLines>
-          <FadeIn as="p" delay={0.15} className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/80">
+          <FadeInLines as="p" className="mt-8 max-w-2xl text-lg leading-relaxed text-ink/80">
             Compliance with pre- and post-operative instructions is the single
             largest predictor of a successful outcome &mdash; larger than the
             procedure itself in most cases. Read the relevant section in full.
             Print it. Keep it visible at home. If anything is unclear, call the
             office before your surgery, not after.
-          </FadeIn>
+          </FadeInLines>
         </div>
       </section>
 

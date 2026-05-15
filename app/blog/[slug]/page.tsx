@@ -89,17 +89,17 @@ export default async function BlogPostPage({
         </div>
 
         <div className="mx-auto max-w-2xl px-6 py-16 md:py-20">
-          <Stagger stagger={0.08} y={14}>
-            {post.body.map((para, i) => (
-              <p
-                key={i}
-                className={`mb-7 text-lg leading-[1.75] text-ink/85 ${
-                  i === 0 ? "dropcap" : ""
-                }`}
-                dangerouslySetInnerHTML={{ __html: para }}
-              />
-            ))}
-          </Stagger>
+          {post.body.map((para, i) => (
+            <FadeInLines
+              as="p"
+              key={i}
+              className={`mb-7 text-lg leading-[1.75] text-ink/85 ${
+                i === 0 ? "dropcap" : ""
+              }`}
+            >
+              <span dangerouslySetInnerHTML={{ __html: para }} />
+            </FadeInLines>
+          ))}
 
           <FadeInLines as="blockquote" className="my-12 border-l-2 border-navy py-2 pl-6 font-display text-2xl font-normal leading-snug tracking-tight text-ink text-balance md:text-3xl">
             The work that matters happens in the months before and after the
@@ -107,7 +107,7 @@ export default async function BlogPostPage({
           </FadeInLines>
 
           {post.body.slice(0, 1).map((_, i) => (
-            <FadeIn
+            <FadeInLines
               as="p"
               key={`closing-${i}`}
               className="mt-7 text-lg leading-[1.75] text-ink/85"
@@ -115,7 +115,7 @@ export default async function BlogPostPage({
               If you have a question about anything in this post, the office line
               is the fastest way to reach the team. We&apos;re happy to talk
               through it.
-            </FadeIn>
+            </FadeInLines>
           ))}
         </div>
       </article>

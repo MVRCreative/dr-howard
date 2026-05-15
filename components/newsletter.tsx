@@ -17,10 +17,10 @@ export function Newsletter() {
             <FadeInLines as="h2" className="font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
               Quarterly recovery and <span className="italic text-navy">prevention insights.</span>
             </FadeInLines>
-            <FadeIn as="p" delay={0.1} className="mt-4 max-w-lg text-ink/70">
+            <FadeInLines as="p" className="mt-4 max-w-lg text-ink/70">
               Four short emails a year. Written by Dr. Howard. No marketing &mdash;
               just the protocols and research we use ourselves.
-            </FadeIn>
+            </FadeInLines>
           </div>
 
           <FadeIn as="div" delay={0.2} y={16} className="md:col-span-5">

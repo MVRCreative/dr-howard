@@ -25,15 +25,15 @@ type Props = {
 }
 
 /**
- * Splits any text content inside `children` into words, then groups those
- * words by their rendered line (via offsetTop) after mount, and fades each
- * line in on scroll with GSAP ScrollTrigger.
+ * Splits all text content inside `children` into words, groups words by their
+ * visual line via offsetTop, and animates each line on scroll-enter with GSAP.
  *
+ * Works for any inline content — headings, paragraphs, blockquotes — including
+ * inline elements (em, strong, span, a) and content from dangerouslySetInnerHTML.
+ *
+ * - Waits for fonts to load before measuring (prevents one-line miscalculation)
  * - Respects prefers-reduced-motion
  * - Re-measures on resize
- * - Preserves inline elements (em, strong, links) as long as their text
- *   is wrapped — non-text React children are skipped from splitting and
- *   rendered as-is.
  */
 export function FadeInLines({
   children,
@@ -49,7 +49,12 @@ export function FadeInLines({
 
   useEffect(() => {
     const el = ref.current
-    if (!el || disabled) return
+    if (!el) return
+
+    if (disabled) {
+      el.style.opacity = "1"
+      return
+    }
 
     const prefersReduced =
       typeof window !== "undefined" &&
@@ -62,20 +67,24 @@ export function FadeInLines({
 
     let trigger: ScrollTrigger | null = null
     let resizeRaf = 0
+    let cancelled = false
 
-    const splitAndAnimate = () => {
-      // Reset any prior split
+    const unwrap = () => {
       const existingWords = el.querySelectorAll<HTMLElement>("[data-fil-word]")
       existingWords.forEach((w) => {
         const parent = w.parentNode
         if (!parent) return
-        // Unwrap
         while (w.firstChild) parent.insertBefore(w.firstChild, w)
         parent.removeChild(w)
       })
       el.normalize()
+    }
 
-      // Walk text nodes and wrap each word in an inline-block span
+    const splitAndAnimate = () => {
+      if (cancelled) return
+      unwrap()
+
+      // Walk text nodes; wrap each word in inline-block span
       const walker = document.createTreeWalker(el, NodeFilter.SHOW_TEXT, {
         acceptNode(node) {
           if (!node.nodeValue || !node.nodeValue.trim()) return NodeFilter.FILTER_REJECT
@@ -112,14 +121,23 @@ export function FadeInLines({
         tn.parentNode?.replaceChild(frag, tn)
       })
 
-      if (wordEls.length === 0) return
+      if (wordEls.length === 0) {
+        el.style.opacity = "1"
+        return
+      }
 
-      // Group words by visual line using offsetTop
+      // Group words by visual line. Use half the computed line-height
+      // as tolerance, which is robust to baseline variation and
+      // descender hangs across element types.
+      const cs = window.getComputedStyle(el)
+      const lh = parseFloat(cs.lineHeight)
+      const tolerance = Number.isFinite(lh) && lh > 0 ? lh / 2 : 6
+
       const lines: HTMLElement[][] = []
       let currentTop: number | null = null
       wordEls.forEach((w) => {
         const top = w.offsetTop
-        if (currentTop === null || Math.abs(top - currentTop) > 2) {
+        if (currentTop === null || Math.abs(top - currentTop) > tolerance) {
           lines.push([w])
           currentTop = top
         } else {
@@ -127,8 +145,8 @@ export function FadeInLines({
         }
       })
 
-      // Set initial state per line, animate per line with stagger
-      gsap.set(wordEls, { yPercent: 0, y, opacity: 0 })
+      // Set initial state. Show wrapper once words are wrapped.
+      gsap.set(wordEls, { y, opacity: 0 })
       el.style.opacity = "1"
 
       const tl = gsap.timeline({
@@ -155,15 +173,24 @@ export function FadeInLines({
       trigger = tl.scrollTrigger ?? null
     }
 
-    // Hide pre-animation to avoid flash
+    // Hide pre-split to avoid a flash of un-staggered content
     el.style.opacity = "0"
-    // Wait a frame for layout
-    const raf = requestAnimationFrame(splitAndAnimate)
+
+    // Wait for fonts so word offsetTop is calculated against the
+    // final layout (otherwise everything can collapse to one "line").
+    const startWhenReady = () => {
+      if (cancelled) return
+      requestAnimationFrame(splitAndAnimate)
+    }
+    if (typeof document !== "undefined" && document.fonts && document.fonts.status !== "loaded") {
+      document.fonts.ready.then(startWhenReady)
+    } else {
+      startWhenReady()
+    }
 
     const onResize = () => {
       cancelAnimationFrame(resizeRaf)
       resizeRaf = requestAnimationFrame(() => {
-        // Only re-measure (lines may have re-wrapped). Re-run setup.
         trigger?.kill()
         splitAndAnimate()
       })
@@ -171,7 +198,7 @@ export function FadeInLines({
     window.addEventListener("resize", onResize)
 
     return () => {
-      cancelAnimationFrame(raf)
+      cancelled = true
       cancelAnimationFrame(resizeRaf)
       window.removeEventListener("resize", onResize)
       trigger?.kill()

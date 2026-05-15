@@ -49,10 +49,10 @@ export default function AboutPage() {
           <FadeInLines as="h1" className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
             Samuel Howard, <span className="italic text-navy">D.O.</span>
           </FadeInLines>
-          <FadeIn as="p" delay={0.15} className="mt-6 max-w-2xl text-xl text-ink/75 md:text-2xl">
+          <FadeInLines as="p" className="mt-6 max-w-2xl text-xl text-ink/75 md:text-2xl">
             Fellowship-trained orthopedic surgeon. Sports medicine, arthroscopy,
             and joint preservation for patients who measure outcomes in performance.
-          </FadeIn>
+          </FadeInLines>
         </div>
       </section>
 
@@ -79,36 +79,36 @@ export default function AboutPage() {
               A practice shaped by the locker room and the operating room.
             </FadeInLines>
 
-            <Stagger stagger={0.12} y={16} className="mt-8 space-y-5 text-lg leading-relaxed text-ink/80">
-              <p>
+            <div className="mt-8 space-y-5 text-lg leading-relaxed text-ink/80">
+              <FadeInLines as="p">
                 I came to orthopedics through sport. Four years as a Division I
                 wrestler taught me what a hurt shoulder feels like at 6 a.m. on a
                 Tuesday, and what it&apos;s like to wait nine months to find out
                 whether a knee is ever going to feel the same again. That experience
                 shaped how I practice.
-              </p>
-              <p>
+              </FadeInLines>
+              <FadeInLines as="p">
                 I completed medical school at the Philadelphia College of Osteopathic
                 Medicine and an orthopedic surgery residency at the Cleveland Clinic.
                 A sports medicine fellowship at Hospital for Special Surgery followed,
                 where I spent a year working alongside team physicians for the New
                 York Giants and the U.S. Open.
-              </p>
-              <p>
+              </FadeInLines>
+              <FadeInLines as="p">
                 The practice I built afterward reflects what I learned in all three
                 places: precise surgery is the floor, not the ceiling. The work that
                 matters happens in the months before and after &mdash; understanding
                 the injury, building the right plan, and being honest about what a
                 patient can expect.
-              </p>
-              <p>
+              </FadeInLines>
+              <FadeInLines as="p">
                 My philosophy is straightforward. We try the conservative path first
                 when it&apos;s reasonable. When surgery is the right answer, we
                 operate with intent and explain everything along the way. And we
                 measure success by whether you got back to doing what you wanted to
                 do &mdash; not by whether the procedure went smoothly.
-              </p>
-            </Stagger>
+              </FadeInLines>
+            </div>
           </div>
         </div>
       </section>
