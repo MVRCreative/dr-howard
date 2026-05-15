@@ -15,7 +15,7 @@ export function Newsletter() {
         <div className="grid gap-10 md:grid-cols-12 md:items-end">
           <div className="md:col-span-7">
             <FadeInLines as="h2" className="font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
-              Quarterly recovery and <span className="italic text-accent-blue">prevention insights.</span>
+              Quarterly recovery and <span className="italic text-navy">prevention insights.</span>
             </FadeInLines>
             <FadeInLines as="p" className="mt-4 max-w-lg text-ink/70">
               Four short emails a year. Written by Dr. Howard. No marketing &mdash;
