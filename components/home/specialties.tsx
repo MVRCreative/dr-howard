@@ -36,7 +36,7 @@ export function Specialties() {
             <FadeInLines as="h2" className="mt-6 font-display text-4xl font-medium leading-[1.05] tracking-tight text-ink text-balance md:text-5xl">
               A focused practice.
               <br />
-              <span className="italic text-accent-blue">A deeper bench.</span>
+              <span className="italic text-navy">A deeper bench.</span>
             </FadeInLines>
             <p className="mt-6 max-w-sm text-ink/70">
               Sub-specialty fellowship training means fewer procedures, performed
@@ -60,13 +60,13 @@ export function Specialties() {
                         <span className="flex h-11 w-11 items-center justify-center border border-navy/30 text-navy">
                           <Icon className="h-5 w-5" aria-hidden />
                         </span>
-                        <span className="font-mono text-xs tabular text-accent-blue md:hidden">
+                        <span className="font-mono text-xs tabular text-steel md:hidden">
                           0{i + 1}
                         </span>
                       </div>
                       <div className="flex-1">
                         <div className="flex items-baseline gap-4">
-                          <span className="hidden font-mono text-xs tabular text-accent-blue md:inline">
+                          <span className="hidden font-mono text-xs tabular text-steel md:inline">
                             0{i + 1}
                           </span>
                           <h3 className="font-display text-2xl font-medium tracking-tight text-ink md:text-3xl">

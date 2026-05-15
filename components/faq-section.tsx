@@ -37,7 +37,7 @@ export function FAQSection({
             <FadeInLines as="h2" className="mt-6 font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
               {title ?? (
                 <>
-                  Questions, <span className="italic text-accent-blue">answered.</span>
+                  Questions, <span className="italic text-navy">answered.</span>
                 </>
               )}
             </FadeInLines>
