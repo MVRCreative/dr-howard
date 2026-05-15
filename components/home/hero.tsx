@@ -4,7 +4,7 @@ import { ArrowDown } from "lucide-react"
 import { PhoneCTA } from "@/components/phone-cta"
 import { SectionLabel } from "@/components/section-label"
 import { FadeInLines } from "@/components/fade-in-lines"
-import { FadeIn } from "@/components/scroll-reveal"
+import { FadeIn, Stagger } from "@/components/scroll-reveal"
 
 export function Hero() {
   return (
@@ -43,6 +43,15 @@ export function Hero() {
               <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
             </Link>
           </div>
+
+          <Stagger
+            as="dl"
+            className="mt-16 grid max-w-md grid-cols-3 gap-6 border-t border-hairline pt-8"
+          >
+            <Stat value="18" label="Years of practice" />
+            <Stat value="4.2k+" label="Procedures" />
+            <Stat value="98%" label="Return to sport" />
+          </Stagger>
         </div>
 
         <div className="md:col-span-5 lg:col-span-5">
@@ -70,5 +79,19 @@ export function Hero() {
         </div>
       </div>
     </section>
+  )
+}
+
+function Stat({ value, label }: { value: string; label: string }) {
+  return (
+    <div>
+      <dt className="sr-only">{label}</dt>
+      <dd className="font-display text-3xl font-medium tabular text-navy sm:text-4xl">
+        {value}
+      </dd>
+      <p className="mt-1 text-[11px] uppercase tracking-[0.14em] text-steel">
+        {label}
+      </p>
+    </div>
   )
 }
