@@ -6,7 +6,7 @@
 /* ─── Design Tokens ─── */
 :root {
   /* Brand */
-  --navy: #0f1419;
+  --navy: oklch(54.6% 0.245 262.881);
   --steel: #6b7280;
   --bone: #f7f6f2;
   --ink: #0f1419;
