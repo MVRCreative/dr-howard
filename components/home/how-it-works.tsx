@@ -28,7 +28,7 @@ export function HowItWorks() {
           <div>
             <SectionLabel number="04">How it works</SectionLabel>
             <FadeInLines as="h2" className="mt-6 max-w-2xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
-              From phone call to <span className="italic text-navy">recovery plan.</span>
+              From phone call to <span className="italic text-accent-blue">recovery plan.</span>
             </FadeInLines>
           </div>
           <p className="mt-6 max-w-sm text-ink/70 md:mt-0">

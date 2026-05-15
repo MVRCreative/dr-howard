@@ -13,6 +13,7 @@
   --medal: #a8894a;
   --bone-muted: #ecebe5;
   --hairline: #d8d6cc;
+  --accent-blue: oklch(54.6% 0.245 262.881);
 
   /* shadcn token mapping (light) */
   --background: #f7f6f2;
@@ -52,6 +53,7 @@
   --color-ink: var(--ink);
   --color-medal: var(--medal);
   --color-hairline: var(--hairline);
+  --color-accent-blue: var(--accent-blue);
 
   /* shadcn colors */
   --color-background: var(--background);
@@ -112,6 +114,6 @@
     font-size: 4.5rem;
     line-height: 0.85;
     padding: 0.35rem 0.6rem 0 0;
-    color: var(--navy);
+    color: var(--accent-blue);
   }
 }

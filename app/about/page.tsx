@@ -47,7 +47,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 pb-16 pt-14 md:pb-24 md:pt-20">
           <SectionLabel>About the practice</SectionLabel>
           <FadeInLines as="h1" className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
-            Samuel Howard, <span className="italic text-navy">D.O.</span>
+            Samuel Howard, <span className="italic text-accent-blue">D.O.</span>
           </FadeInLines>
           <FadeInLines as="p" className="mt-6 max-w-2xl text-xl text-ink/75 md:text-2xl">
             Fellowship-trained orthopedic surgeon. Sports medicine, arthroscopy,
@@ -126,7 +126,7 @@ export default function AboutPage() {
                 key={member.name}
                 className="border-t border-navy/30 pt-6"
               >
-                <span className="font-mono text-xs tabular text-steel">
+                <span className="font-mono text-xs tabular text-accent-blue">
                   0{i + 1}
                 </span>
                 <h3 className="mt-3 font-display text-2xl font-medium text-ink">

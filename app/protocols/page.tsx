@@ -142,7 +142,7 @@ export default function ProtocolsPage() {
                       href={`#${s.id}`}
                       className="flex items-baseline gap-3 text-sm text-ink/80 hover:text-navy"
                     >
-                      <span className="font-mono text-xs tabular text-steel">
+                      <span className="font-mono text-xs tabular text-accent-blue">
                         {s.n}
                       </span>
                       <span>{s.title}</span>
@@ -161,7 +161,7 @@ export default function ProtocolsPage() {
                 className="scroll-mt-28 border-t border-navy/30 py-12 first:border-t-0 first:pt-0 md:py-16"
               >
                 <div className="flex items-baseline gap-4">
-                  <span className="font-mono text-sm tabular text-navy/60">
+                  <span className="font-mono text-sm tabular text-accent-blue">
                     {section.n}
                   </span>
                   <FadeInLines as="h2" className="font-display text-4xl font-medium leading-tight tracking-tight text-balance md:text-5xl">
