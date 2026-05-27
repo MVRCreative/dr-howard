@@ -1,9 +1,11 @@
 import { FAQSection } from "@/components/faq-section"
 import { SectionLabel } from "@/components/section-label"
 import { PHONE_DISPLAY, PHONE_HREF, PhoneCTA } from "@/components/phone-cta"
+import { BookOnlineCTA } from "@/components/book-online-cta"
 import { MapPin, Clock, Car, ShieldCheck } from "lucide-react"
 import { FadeInLines } from "@/components/fade-in-lines"
 import { FadeIn, Stagger } from "@/components/scroll-reveal"
+import { SITE, formatOfficeHoursLine } from "@/lib/site"
 
 export const metadata = {
   title: "Call the office",
@@ -87,17 +89,25 @@ export default function ContactPage() {
           </FadeIn>
 
           <div className="mt-10 flex flex-col items-center justify-center gap-2 text-sm text-steel">
-            <p className="flex items-center gap-2">
-              <Clock className="h-4 w-4" />
-              Monday&ndash;Thursday 7:30a&ndash;5:00p
-              <span className="mx-1 text-ink/30">/</span>
-              Friday 7:30a&ndash;12:00p
+            <p className="flex items-start gap-2 text-center">
+              <Clock className="mt-0.5 h-4 w-4 shrink-0" />
+              <span>
+                {SITE.hours.map((h, i) => (
+                  <span key={h.day}>
+                    {i > 0 && <span className="mx-1 text-ink/30">/</span>}
+                    {formatOfficeHoursLine(h)}
+                  </span>
+                ))}
+              </span>
             </p>
-            <p>After-hours urgent line available for established patients.</p>
+            <p className="max-w-md text-center text-xs text-steel">
+              {SITE.inClinicNote}
+            </p>
           </div>
 
-          <div className="mt-10 flex justify-center md:hidden">
-            <PhoneCTA variant="solid" size="lg" label="Tap to call" />
+          <div className="mt-10 flex flex-col items-center justify-center gap-4">
+            <PhoneCTA variant="solid" size="lg" label="Tap to call" className="md:hidden" />
+            <BookOnlineCTA variant="outline" size="lg" label="Or book online at Macomb Orthopedics" />
           </div>
         </div>
       </section>
@@ -144,10 +154,11 @@ export default function ContactPage() {
                   <p className="text-xs uppercase tracking-[0.18em] text-steel">
                     Address
                   </p>
+                  {/* TODO(client): Replace with confirmed Macomb Orthopedics office address */}
                   <p className="mt-1 text-lg">
-                    240 North Athletic Way, Suite 410
+                    {SITE.address.line1}, {SITE.address.line2}
                     <br />
-                    Indianapolis, IN 46204
+                    {SITE.address.cityStateZip}
                   </p>
                 </div>
               </li>
@@ -158,9 +169,14 @@ export default function ContactPage() {
                     Hours
                   </p>
                   <p className="mt-1 text-lg">
-                    Mon&ndash;Thu&nbsp; 7:30a&ndash;5:00p
-                    <br />
-                    Fri&nbsp; 7:30a&ndash;12:00p
+                    {SITE.hours.map((h) => (
+                      <span key={h.day} className="block">
+                        {h.day}&nbsp; {h.open}&ndash;{h.close}
+                      </span>
+                    ))}
+                  </p>
+                  <p className="mt-3 text-sm text-ink/70">
+                    {SITE.inClinicNote}
                   </p>
                 </div>
               </li>

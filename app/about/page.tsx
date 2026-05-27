@@ -4,6 +4,7 @@ import { SectionLabel } from "@/components/section-label"
 import { Award } from "lucide-react"
 import { FadeInLines } from "@/components/fade-in-lines"
 import { FadeIn, Stagger } from "@/components/scroll-reveal"
+import { SITE } from "@/lib/site"
 
 export const metadata = {
   title: "About Dr. Samuel Howard, D.O.",
@@ -50,8 +51,8 @@ export default function AboutPage() {
             Samuel Howard, <span className="italic text-accent">D.O.</span>
           </FadeInLines>
           <FadeInLines as="p" className="mt-6 max-w-2xl text-xl text-ink/75 md:text-2xl">
-            Fellowship-trained orthopedic surgeon. Sports medicine, arthroscopy,
-            and joint preservation for patients who measure outcomes in performance.
+            {SITE.doctor.credentials}. Arthroscopic surgery of the shoulder,
+            elbow, and knee for patients who measure outcomes in performance.
           </FadeInLines>
         </div>
       </section>
@@ -87,12 +88,12 @@ export default function AboutPage() {
                 whether a knee is ever going to feel the same again. That experience
                 shaped how I practice.
               </FadeInLines>
+              {/* TODO(client): Replace with confirmed education, residency, and fellowship details */}
               <FadeInLines as="p">
-                I completed medical school at the Philadelphia College of Osteopathic
-                Medicine and an orthopedic surgery residency at the Cleveland Clinic.
-                A sports medicine fellowship at Hospital for Special Surgery followed,
-                where I spent a year working alongside team physicians for the New
-                York Giants and the U.S. Open.
+                I am a D.O. and board-eligible orthopedic surgeon with fellowship
+                training in Orthopedic Sports Medicine. My practice focuses on
+                arthroscopic, minimally invasive surgery of the shoulder, elbow,
+                and knee.
               </FadeInLines>
               <FadeInLines as="p">
                 The practice I built afterward reflects what I learned in all three
@@ -146,7 +147,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
           <SectionLabel number="03">Credentials & memberships</SectionLabel>
           <FadeInLines as="h2" className="mt-6 max-w-3xl font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
-            Board-certified. Continually accredited.
+            Board-eligible. Fellowship-trained.
           </FadeInLines>
 
           <Stagger as="ul" stagger={0.07} y={12} className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-3">

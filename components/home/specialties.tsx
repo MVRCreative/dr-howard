@@ -1,30 +1,23 @@
-import { Activity, Bone, ScanLine, RotateCw } from "lucide-react"
+import {
+  Activity,
+  Bone,
+  ScanLine,
+  RotateCw,
+  Footprints,
+  type LucideIcon,
+} from "lucide-react"
 import { SectionLabel } from "@/components/section-label"
 import { FadeInLines } from "@/components/fade-in-lines"
 import { Stagger } from "@/components/scroll-reveal"
+import { SITE } from "@/lib/site"
 
-const SPECIALTIES = [
-  {
-    icon: Bone,
-    title: "Knee & Shoulder Surgery",
-    body: "ACL and meniscus repair, rotator cuff reconstruction, labral repair, and complex revision procedures &mdash; using techniques refined through fellowship training and thousands of cases.",
-  },
-  {
-    icon: Activity,
-    title: "Sports Injury Recovery",
-    body: "Acute injury management for athletes at every level. Same-week evaluation, imaging review, and a treatment plan that respects your season and your goals.",
-  },
-  {
-    icon: RotateCw,
-    title: "Joint Preservation",
-    body: "Cartilage restoration, osteotomy, and biologic therapies designed to keep your native joint working longer &mdash; especially for patients too young for replacement.",
-  },
-  {
-    icon: ScanLine,
-    title: "Arthroscopy",
-    body: "Minimally invasive procedures of the knee, shoulder, hip, and ankle. Smaller incisions, faster rehabilitation, and outcomes you can measure on the field.",
-  },
-]
+const SPECIALTY_ICONS: Record<string, LucideIcon> = {
+  Shoulder: Bone,
+  Knee: Activity,
+  Elbow: RotateCw,
+  "Ankle & Foot": Footprints,
+  "Fractures & Trauma": ScanLine,
+}
 
 export function Specialties() {
   return (
@@ -39,15 +32,14 @@ export function Specialties() {
               <span className="italic text-accent">A deeper bench.</span>
             </FadeInLines>
             <p className="mt-6 max-w-sm text-ink/70">
-              Sub-specialty fellowship training means fewer procedures, performed
-              more often. Below is what Dr. Howard treats every week.
+              {SITE.specialtiesIntro}
             </p>
           </div>
 
           <div className="md:col-span-8">
             <Stagger as="ul" stagger={0.12} y={24} className="divide-y divide-hairline border-y border-hairline">
-              {SPECIALTIES.map((s, i) => {
-                const Icon = s.icon
+              {SITE.specialties.map((s, i) => {
+                const Icon = SPECIALTY_ICONS[s.title] ?? Bone
                 const alignRight = i % 2 === 1
                 return (
                   <li key={s.title} className="py-8 md:py-10">
@@ -73,10 +65,20 @@ export function Specialties() {
                             {s.title}
                           </h3>
                         </div>
-                        <p
-                          className="mt-3 max-w-2xl text-ink/75"
-                          dangerouslySetInnerHTML={{ __html: s.body }}
-                        />
+                        <ul className="mt-4 grid max-w-2xl gap-1.5 sm:grid-cols-2">
+                          {s.conditions.map((condition) => (
+                            <li
+                              key={condition}
+                              className="flex items-start gap-2 text-sm text-ink/75"
+                            >
+                              <span
+                                className="mt-2 h-1 w-1 shrink-0 rounded-full bg-navy/50"
+                                aria-hidden
+                              />
+                              {condition}
+                            </li>
+                          ))}
+                        </ul>
                       </div>
                     </div>
                   </li>

@@ -1,4 +1,5 @@
-import { PhoneCTA, PHONE_DISPLAY } from "@/components/phone-cta"
+import { PhoneCTA, PHONE_DISPLAY, PHONE_HREF } from "@/components/phone-cta"
+import { BookOnlineCTA } from "@/components/book-online-cta"
 import { FadeInLines } from "@/components/fade-in-lines"
 import { FadeIn } from "@/components/scroll-reveal"
 
@@ -35,13 +36,14 @@ export function CTASection({
               Call the office
             </p>
             <a
-              href={`tel:+15551234567`}
+              href={PHONE_HREF}
               className="mt-3 block font-display text-5xl font-medium tracking-tight tabular hover:text-medal md:text-6xl"
             >
               {PHONE_DISPLAY}
             </a>
-            <div className="mt-6 md:flex md:justify-end">
+            <div className="mt-6 flex flex-col gap-3 md:items-end">
               <PhoneCTA variant="inverted" size="lg" label="Tap to call" />
+              <BookOnlineCTA variant="outline" size="lg" className="border-bone/40 text-bone hover:bg-bone hover:text-navy" />
             </div>
           </FadeIn>
         </div>

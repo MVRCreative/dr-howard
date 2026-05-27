@@ -4,6 +4,7 @@ import { Analytics } from "@vercel/analytics/next"
 import { Header } from "@/components/sections/header"
 import { Footer } from "@/components/sections/footer"
 import { SmoothScrollProvider } from "@/components/providers/smooth-scroll-provider"
+import { SITE } from "@/lib/site"
 import "./globals.css"
 
 const fraunces = Fraunces({
@@ -27,8 +28,7 @@ export const metadata: Metadata = {
     default: "Dr. Samuel Howard, D.O. — Orthopedic Surgery & Sports Medicine",
     template: "%s | Dr. Samuel Howard, D.O.",
   },
-  description:
-    "Board-certified orthopedic surgeon specializing in sports medicine, arthroscopy, and joint preservation. Performance-driven care for athletes and active patients.",
+  description: `${SITE.doctor.credentials}. Performance-driven care for athletes and active patients.`,
   openGraph: {
     type: "website",
     locale: "en_US",

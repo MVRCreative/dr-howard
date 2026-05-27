@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { PHONE_DISPLAY, PHONE_HREF } from "@/components/phone-cta"
 import { MapPin, Clock, Phone } from "lucide-react"
+import { SITE, formatOfficeHoursLine } from "@/lib/site"
 
 export function Footer() {
   return (
@@ -9,14 +10,14 @@ export function Footer() {
         <div className="grid gap-12 md:grid-cols-12">
           <div className="md:col-span-4">
             <div className="leading-tight">
-              <p className="font-display text-lg text-ink">Samuel Howard, D.O.</p>
+              <p className="font-display text-lg text-ink">{SITE.doctor.name}</p>
               <p className="mt-1 text-xs uppercase tracking-[0.18em] text-steel">
                 Orthopedic Surgery
               </p>
             </div>
             <p className="mt-6 max-w-sm text-sm text-ink/70">
-              Performance-driven orthopedic care for athletes and active patients.
-              Sports medicine, arthroscopy, and joint preservation.
+              {SITE.doctor.credentials}. Performance-driven care for athletes and
+              active patients.
             </p>
           </div>
 
@@ -28,7 +29,17 @@ export function Footer() {
               <li><Link href="/about" className="hover:text-navy">About</Link></li>
               <li><Link href="/protocols" className="hover:text-navy">Protocols</Link></li>
               <li><Link href="/blog" className="hover:text-navy">Blog</Link></li>
-              <li><Link href="/contact" className="hover:text-navy">Book a visit</Link></li>
+              <li>
+                <a
+                  href={SITE.booking.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-navy"
+                >
+                  {SITE.booking.label}
+                </a>
+              </li>
+              <li><Link href="/contact" className="hover:text-navy">Contact</Link></li>
             </ul>
           </div>
 
@@ -39,20 +50,26 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-ink/80">
               <li className="flex items-start gap-2.5">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-steel" />
+                {/* TODO(client): Replace with confirmed Macomb Orthopedics office address */}
                 <span>
-                  240 North Athletic Way
+                  {SITE.address.line1}
                   <br />
-                  Suite 410
+                  {SITE.address.line2}
                   <br />
-                  Indianapolis, IN 46204
+                  {SITE.address.cityStateZip}
                 </span>
               </li>
               <li className="flex items-start gap-2.5">
                 <Clock className="mt-0.5 h-4 w-4 shrink-0 text-steel" />
                 <span>
-                  Mon&ndash;Thu&nbsp; 7:30a&ndash;5:00p
-                  <br />
-                  Fri&nbsp; 7:30a&ndash;12:00p
+                  {SITE.hours.map((h) => (
+                    <span key={h.day} className="block">
+                      {formatOfficeHoursLine(h)}
+                    </span>
+                  ))}
+                  <span className="mt-2 block text-xs text-steel">
+                    {SITE.inClinicNote}
+                  </span>
                 </span>
               </li>
             </ul>
@@ -76,7 +93,7 @@ export function Footer() {
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-hairline pt-6 text-xs text-steel md:flex-row md:items-center">
-          <p>&copy; {new Date().getFullYear()} Samuel Howard, D.O. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} {SITE.doctor.name} All rights reserved.</p>
           <p>
             The content on this site is for informational purposes only and does not
             constitute medical advice.

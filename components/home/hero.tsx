@@ -1,10 +1,10 @@
 import Image from "next/image"
-import Link from "next/link"
-import { ArrowDown } from "lucide-react"
 import { PhoneCTA } from "@/components/phone-cta"
+import { BookOnlineCTA } from "@/components/book-online-cta"
 import { SectionLabel } from "@/components/section-label"
 import { FadeInLines } from "@/components/fade-in-lines"
 import { FadeIn } from "@/components/scroll-reveal"
+import { SITE } from "@/lib/site"
 
 export function Hero() {
   return (
@@ -25,23 +25,15 @@ export function Hero() {
             as="p"
             className="mt-7 max-w-xl text-lg leading-relaxed text-ink/75"
           >
-            Dr. Samuel Howard, D.O., is a board-certified orthopedic surgeon
-            specializing in sports medicine, arthroscopy, and joint preservation.
+            {SITE.doctor.name} is a {SITE.doctor.credentials.toLowerCase()}{" "}
+            specializing in arthroscopic surgery of the shoulder, elbow, and knee.
             He treats weekend athletes and elite competitors with the same
             standard of care &mdash; one focused on return to performance.
           </FadeInLines>
 
           <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-5">
             <PhoneCTA variant="solid" size="lg" />
-            <Link
-              href="#specialties"
-              className="group inline-flex items-center gap-2 text-sm font-medium text-ink/80 hover:text-navy"
-            >
-              <span className="border-b border-ink/30 pb-0.5 group-hover:border-navy">
-                Learn more about the practice
-              </span>
-              <ArrowDown className="h-4 w-4 transition-transform group-hover:translate-y-0.5" />
-            </Link>
+            <BookOnlineCTA variant="outline" size="lg" />
           </div>
         </div>
 
@@ -51,7 +43,7 @@ export function Hero() {
             <div className="relative aspect-[4/5] overflow-hidden bg-bone-muted">
               <Image
                 src="/sam-howard.png"
-                alt="Portrait of Dr. Samuel Howard, D.O."
+                alt={`Portrait of ${SITE.doctor.name}`}
                 fill
                 priority
                 className="object-cover"
@@ -60,10 +52,10 @@ export function Hero() {
             </div>
             <div className="absolute -bottom-3 -right-3 hidden border border-navy/30 bg-bone px-4 py-3 md:block">
               <p className="font-display text-sm leading-tight text-ink">
-                Samuel Howard, <span className="text-steel">D.O.</span>
+                Samuel Howard, <span className="text-steel">{SITE.doctor.degree}</span>
               </p>
               <p className="text-[10px] uppercase tracking-[0.18em] text-steel">
-                Board-certified, AOA
+                Board-eligible, fellowship-trained
               </p>
             </div>
           </FadeIn>

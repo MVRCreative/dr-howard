@@ -1,13 +1,11 @@
-import { Phone } from "lucide-react"
-import { PHONE_DISPLAY, PHONE_HREF, SITE } from "@/lib/site"
+import { ExternalLink } from "lucide-react"
+import { SITE } from "@/lib/site"
 import { cn } from "@/lib/utils"
-
-export { PHONE_DISPLAY, PHONE_HREF }
 
 type Variant = "solid" | "outline" | "inverted" | "ghost"
 type Size = "sm" | "md" | "lg" | "xl"
 
-interface PhoneCTAProps {
+interface BookOnlineCTAProps {
   variant?: Variant
   size?: Size
   label?: string
@@ -23,27 +21,27 @@ const sizes: Record<Size, string> = {
 }
 
 const variants: Record<Variant, string> = {
-  solid:
-    "bg-navy text-bone hover:bg-ink focus-visible:ring-navy",
+  solid: "bg-navy text-bone hover:bg-ink focus-visible:ring-navy",
   outline:
     "border border-navy text-navy hover:bg-navy hover:text-bone focus-visible:ring-navy",
   inverted:
     "bg-bone text-navy hover:bg-white focus-visible:ring-bone",
-  ghost:
-    "text-navy hover:text-ink focus-visible:ring-navy",
+  ghost: "text-navy hover:text-ink focus-visible:ring-navy",
 }
 
-export function PhoneCTA({
-  variant = "solid",
+export function BookOnlineCTA({
+  variant = "outline",
   size = "md",
-  label,
+  label = SITE.booking.onlineLabel,
   className,
   showIcon = true,
-}: PhoneCTAProps) {
+}: BookOnlineCTAProps) {
   return (
     <a
-      href={PHONE_HREF}
-      aria-label={`Call ${SITE.doctor.shortName}'s office at ${PHONE_DISPLAY}`}
+      href={SITE.booking.url}
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label={`${label} at Macomb Orthopedics (opens in new tab)`}
       className={cn(
         "inline-flex items-center justify-center font-medium tracking-tight transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-offset-bone",
         sizes[size],
@@ -51,8 +49,10 @@ export function PhoneCTA({
         className,
       )}
     >
-      {showIcon && <Phone className="h-[1.1em] w-[1.1em]" aria-hidden="true" />}
-      <span className="tabular">{label ?? PHONE_DISPLAY}</span>
+      {showIcon && (
+        <ExternalLink className="h-[1.1em] w-[1.1em]" aria-hidden="true" />
+      )}
+      <span>{label}</span>
     </a>
   )
 }
