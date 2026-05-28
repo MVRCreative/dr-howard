@@ -40,36 +40,26 @@ export function Specialties() {
             <Stagger as="ul" stagger={0.12} y={24} className="divide-y divide-hairline border-y border-hairline">
               {SITE.specialties.map((s, i) => {
                 const Icon = SPECIALTY_ICONS[s.title] ?? Bone
-                const alignRight = i % 2 === 1
                 return (
-                  <li key={s.title} className="py-8 md:py-10">
-                    <div
-                      className={`flex flex-col gap-5 md:flex-row md:items-start md:gap-10 ${
-                        alignRight ? "md:pl-16" : ""
-                      }`}
-                    >
-                      <div className="flex items-center gap-4 md:w-48 md:shrink-0">
-                        <span className="flex h-11 w-11 items-center justify-center border border-navy/30 text-navy">
-                          <Icon className="h-5 w-5" aria-hidden />
-                        </span>
-                        <span className="font-mono text-xs tabular text-steel md:hidden">
-                          0{i + 1}
-                        </span>
-                      </div>
-                      <div className="flex-1">
-                        <div className="flex items-baseline gap-4">
-                          <span className="hidden font-mono text-xs tabular text-steel md:inline">
+                  <li key={s.title} className="py-6 md:py-8">
+                    <div className="grid grid-cols-[2.75rem_1fr] gap-x-5 gap-y-4 md:gap-x-8">
+                      <span className="flex h-11 w-11 items-center justify-center border border-navy/30 text-navy">
+                        <Icon className="h-5 w-5" aria-hidden />
+                      </span>
+                      <div className="min-w-0">
+                        <div className="flex items-baseline gap-3">
+                          <span className="font-mono text-xs tabular text-steel">
                             0{i + 1}
                           </span>
                           <h3 className="font-display text-2xl font-medium tracking-tight text-ink md:text-3xl">
                             {s.title}
                           </h3>
                         </div>
-                        <ul className="mt-4 grid max-w-2xl gap-1.5 sm:grid-cols-2">
+                        <ul className="mt-4 grid gap-x-6 gap-y-1.5 sm:grid-cols-2">
                           {s.conditions.map((condition) => (
                             <li
                               key={condition}
-                              className="flex items-start gap-2 text-sm text-ink/75"
+                              className="flex items-start gap-2 text-sm leading-relaxed text-ink/75"
                             >
                               <span
                                 className="mt-2 h-1 w-1 shrink-0 rounded-full bg-navy/50"
