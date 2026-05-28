@@ -23,7 +23,7 @@ export function Testimonials() {
       <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <SectionLabel number="03">In their words</SectionLabel>
         <FadeInLines as="h2" className="mt-6 max-w-3xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
-          The work is measured in <span className="italic text-accent">comebacks.</span>
+          The work is measured in <span className="italic text-accent-blue">comebacks.</span>
         </FadeInLines>
 
         <Stagger stagger={0.18} y={24} className="mt-14 grid gap-12 md:grid-cols-2 md:gap-16">

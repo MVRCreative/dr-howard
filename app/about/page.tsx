@@ -48,7 +48,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 pb-16 pt-14 md:pb-24 md:pt-20">
           <SectionLabel>About the practice</SectionLabel>
           <FadeInLines as="h1" className="mt-6 max-w-4xl font-display text-5xl font-medium leading-[1.02] tracking-tight text-balance md:text-7xl">
-            Samuel Howard, <span className="italic text-accent">D.O.</span>
+            Samuel Howard, <span className="italic text-accent-blue">D.O.</span>
           </FadeInLines>
           <FadeInLines as="p" className="mt-6 max-w-2xl text-xl text-ink/75 md:text-2xl">
             {SITE.doctor.credentials}. Arthroscopic surgery of the shoulder,
