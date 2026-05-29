@@ -16,8 +16,11 @@ export function Footer() {
               </p>
             </div>
             <p className="mt-6 max-w-sm text-sm text-ink/70">
-              {SITE.doctor.credentials}. Performance-driven care for athletes and
-              active patients.
+              {SITE.localSeoBlurb}{" "}
+              <Link href="/about" className="text-navy underline-offset-4 hover:underline">
+                Learn more about Dr. Howard
+              </Link>
+              .
             </p>
           </div>
 
@@ -50,11 +53,8 @@ export function Footer() {
             <ul className="mt-4 space-y-3 text-sm text-ink/80">
               <li className="flex items-start gap-2.5">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-steel" />
-                {/* TODO(client): Replace with confirmed Macomb Orthopedics office address */}
                 <span>
                   {SITE.address.line1}
-                  <br />
-                  {SITE.address.line2}
                   <br />
                   {SITE.address.cityStateZip}
                 </span>

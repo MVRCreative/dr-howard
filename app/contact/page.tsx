@@ -1,16 +1,20 @@
+import type { Metadata } from "next"
 import { FAQSection } from "@/components/faq-section"
 import { SectionLabel } from "@/components/section-label"
 import { PHONE_DISPLAY, PHONE_HREF, PhoneCTA } from "@/components/phone-cta"
 import { BookOnlineCTA } from "@/components/book-online-cta"
+import { JsonLd } from "@/components/seo/json-ld"
 import { MapPin, Clock, Car, ShieldCheck } from "lucide-react"
 import { FadeInLines } from "@/components/fade-in-lines"
 import { FadeIn, Stagger } from "@/components/scroll-reveal"
+import { CONTACT_FAQS } from "@/lib/faqs"
+import { buildFAQPageSchema } from "@/lib/schema"
 import { SITE, formatOfficeHoursLine } from "@/lib/site"
 
-export const metadata = {
-  title: "Call the office",
+export const metadata: Metadata = {
+  title: "Contact Macomb Orthopedics — Clinton Township, MI",
   description:
-    "Call Dr. Samuel Howard&apos;s office to schedule a consultation. Office hours, location, and insurance information.",
+    "Call (586) 469-8300 to schedule with Dr. Samuel Howard at Macomb Orthopedics, 38525 Hilldale Street, Clinton Township, MI 48036. Office hours, parking, and insurance information.",
 }
 
 const CALL_STEPS = [
@@ -42,32 +46,10 @@ const INSURANCE = [
   "Workers&apos; Compensation",
 ]
 
-const FAQ_ITEMS = [
-  {
-    q: "What if I need to cancel or reschedule?",
-    a: "Call as soon as you know. We ask for 24 hours when possible, but we understand life happens. There is no fee for cancellation.",
-  },
-  {
-    q: "What should I bring to my first appointment?",
-    a: "Your insurance card, a photo ID, a list of current medications, and any imaging (X-ray, MRI, CT) on a disc or via your patient portal. If you have prior operative reports, bring those too.",
-  },
-  {
-    q: "Do you take patients without insurance?",
-    a: "Yes. We have transparent self-pay pricing for consultations and a number of procedures. Call the office and we&apos;ll walk you through it.",
-  },
-  {
-    q: "How do I get a referral?",
-    a: "Most plans don&apos;t require one, but a handful of HMOs do. Call your insurance to check, or call us and we&apos;ll verify it for you.",
-  },
-  {
-    q: "Is there parking on-site?",
-    a: "Yes. Free patient parking in the attached garage on the south side of the building, level two. Validate at the front desk.",
-  },
-]
-
 export default function ContactPage() {
   return (
     <>
+      <JsonLd data={buildFAQPageSchema(CONTACT_FAQS)} />
       <section className="border-b border-hairline">
         <div className="mx-auto max-w-7xl px-6 pb-16 pt-14 text-center md:pb-24 md:pt-20">
           <SectionLabel className="justify-center">Call the office</SectionLabel>
@@ -75,7 +57,8 @@ export default function ContactPage() {
             Call the office.
           </FadeInLines>
           <p className="mx-auto mt-6 max-w-xl text-lg text-ink/75">
-            The fastest way to schedule. No form to fill out, no waiting on email.
+            The fastest way to schedule at {SITE.practiceName} in Clinton Township.
+            No form to fill out, no waiting on email.
           </p>
 
           <FadeIn as="div" delay={0.2} y={20} duration={1}>
@@ -154,11 +137,13 @@ export default function ContactPage() {
                   <p className="text-xs uppercase tracking-[0.18em] text-steel">
                     Address
                   </p>
-                  {/* TODO(client): Replace with confirmed Macomb Orthopedics office address */}
                   <p className="mt-1 text-lg">
-                    {SITE.address.line1}, {SITE.address.line2}
+                    {SITE.address.line1}
                     <br />
                     {SITE.address.cityStateZip}
+                  </p>
+                  <p className="mt-2 text-sm text-ink/70">
+                    {SITE.practiceName} — serving Metro Detroit and Macomb County
                   </p>
                 </div>
               </li>
@@ -187,9 +172,8 @@ export default function ContactPage() {
                     Parking
                   </p>
                   <p className="mt-1 text-lg">
-                    Free patient parking, attached garage, level two.
-                    <br />
-                    Validate at the front desk.
+                    Free patient parking is available at the Macomb Orthopedics
+                    office on Hilldale Street in Clinton Township.
                   </p>
                 </div>
               </li>
@@ -224,7 +208,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      <FAQSection items={FAQ_ITEMS} number="04" />
+      <FAQSection items={CONTACT_FAQS} number="04" />
     </>
   )
 }

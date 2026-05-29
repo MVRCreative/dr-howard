@@ -1,3 +1,4 @@
+import type { Metadata } from "next"
 import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { SectionLabel } from "@/components/section-label"
@@ -5,10 +6,10 @@ import { Download, FileText } from "lucide-react"
 import { FadeInLines } from "@/components/fade-in-lines"
 import { FadeIn, Stagger } from "@/components/scroll-reveal"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Operative protocols & instructions",
   description:
-    "Pre-operative, post-operative, and medication guidelines for surgical patients of Dr. Samuel Howard.",
+    "Pre-operative, post-operative, and medication guidelines for surgical patients of Dr. Samuel Howard at Macomb Orthopedics in Clinton Township, MI.",
 }
 
 const SECTIONS = [

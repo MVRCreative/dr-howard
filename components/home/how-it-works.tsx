@@ -26,7 +26,7 @@ export function HowItWorks() {
       <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
         <div className="md:flex md:items-end md:justify-between">
           <div>
-            <SectionLabel number="04">How it works</SectionLabel>
+            <SectionLabel number="05">How it works</SectionLabel>
             <FadeInLines as="h2" className="mt-6 max-w-2xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
               From phone call to <span className="italic text-accent-blue">recovery plan.</span>
             </FadeInLines>

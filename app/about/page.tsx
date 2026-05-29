@@ -1,17 +1,19 @@
 import Image from "next/image"
+import type { Metadata } from "next"
 import { CTASection } from "@/components/cta-section"
 import { SectionLabel } from "@/components/section-label"
-import { Award } from "lucide-react"
+import { Award, GraduationCap } from "lucide-react"
 import { FadeInLines } from "@/components/fade-in-lines"
 import { FadeIn, Stagger } from "@/components/scroll-reveal"
 import { SITE } from "@/lib/site"
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "About Dr. Samuel Howard, D.O.",
   description:
-    "Orthopedic surgeon Dr. Samuel Howard, D.O. — fellowship-trained in sports medicine. Education, philosophy of care, and credentials.",
+    "Fellowship-trained orthopedic sports medicine surgeon at Macomb Orthopedics in Clinton Township, MI. Education, training, credentials, and practice focus — rotator cuff repair, ACL reconstruction, and arthroscopic surgery.",
 }
 
+// Team names/roles unconfirmed by client — verify before publishing final bios.
 const TEAM = [
   {
     name: "Priya Ramaswami, PA-C",
@@ -33,14 +35,6 @@ const TEAM = [
   },
 ]
 
-const CREDENTIALS = [
-  "American Osteopathic Academy of Orthopedics",
-  "American Osteopathic Association",
-  "Arthroscopy Association of North America",
-  "American Orthopaedic Society for Sports Medicine",
-  "Indiana State Medical Association",
-]
-
 export default function AboutPage() {
   return (
     <>
@@ -51,8 +45,20 @@ export default function AboutPage() {
             Samuel Howard, <span className="italic text-accent-blue">D.O.</span>
           </FadeInLines>
           <FadeInLines as="p" className="mt-6 max-w-2xl text-xl text-ink/75 md:text-2xl">
-            {SITE.doctor.credentials}. Arthroscopic surgery of the shoulder,
-            elbow, and knee for patients who measure outcomes in performance.
+            {SITE.doctor.credentials}. Orthopedic sports medicine at{" "}
+            {SITE.practiceName} in Clinton Township, Michigan.
+          </FadeInLines>
+        </div>
+      </section>
+
+      <section className="border-b border-hairline bg-bone-muted/40">
+        <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
+          <SectionLabel number="01">Practice focus</SectionLabel>
+          <FadeInLines as="h2" className="mt-6 max-w-3xl font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
+            Fellowship-trained sports medicine surgery.
+          </FadeInLines>
+          <FadeInLines as="p" className="mt-8 max-w-4xl text-lg leading-relaxed text-ink/80">
+            {SITE.doctor.googleBio}
           </FadeInLines>
         </div>
       </section>
@@ -65,7 +71,7 @@ export default function AboutPage() {
               <div className="relative aspect-[4/5] overflow-hidden bg-bone-muted">
                 <Image
                   src="/sam-howard.png"
-                  alt="Dr. Samuel Howard in his clinic"
+                  alt="Dr. Samuel Howard, orthopedic sports medicine surgeon at Macomb Orthopedics"
                   fill
                   className="object-cover"
                   sizes="(min-width: 768px) 40vw, 100vw"
@@ -75,40 +81,38 @@ export default function AboutPage() {
           </div>
 
           <div className="md:col-span-7">
-            <SectionLabel number="01">Background</SectionLabel>
+            <SectionLabel number="02">Background</SectionLabel>
             <FadeInLines as="h2" className="mt-6 font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
-              A practice shaped by the locker room and the operating room.
+              From Oxford to Metro Detroit.
             </FadeInLines>
 
             <div className="mt-8 space-y-5 text-lg leading-relaxed text-ink/80">
-              <FadeInLines as="p">
-                I came to orthopedics through sport. Four years as a Division I
-                wrestler taught me what a hurt shoulder feels like at 6 a.m. on a
-                Tuesday, and what it&apos;s like to wait nine months to find out
-                whether a knee is ever going to feel the same again. That experience
-                shaped how I practice.
-              </FadeInLines>
-              {/* TODO(client): Replace with confirmed education, residency, and fellowship details */}
-              <FadeInLines as="p">
-                I am a D.O. and board-eligible orthopedic surgeon with fellowship
-                training in Orthopedic Sports Medicine. My practice focuses on
-                arthroscopic, minimally invasive surgery of the shoulder, elbow,
-                and knee.
-              </FadeInLines>
-              <FadeInLines as="p">
-                The practice I built afterward reflects what I learned in all three
-                places: precise surgery is the floor, not the ceiling. The work that
-                matters happens in the months before and after &mdash; understanding
-                the injury, building the right plan, and being honest about what a
-                patient can expect.
-              </FadeInLines>
-              <FadeInLines as="p">
-                My philosophy is straightforward. We try the conservative path first
-                when it&apos;s reasonable. When surgery is the right answer, we
-                operate with intent and explain everything along the way. And we
-                measure success by whether you got back to doing what you wanted to
-                do &mdash; not by whether the procedure went smoothly.
-              </FadeInLines>
+              {SITE.doctor.backgroundBio.map((paragraph) => (
+                <FadeInLines as="p" key={paragraph.slice(0, 40)}>
+                  {paragraph}
+                </FadeInLines>
+              ))}
+            </div>
+
+            <div className="mt-12">
+              <SectionLabel>Education</SectionLabel>
+              <Stagger as="ul" stagger={0.08} y={12} className="mt-6 space-y-5">
+                {SITE.education.map((entry) => (
+                  <li
+                    key={entry.institution}
+                    className="flex items-start gap-4 border-t border-hairline pt-4"
+                  >
+                    <GraduationCap className="mt-0.5 h-5 w-5 shrink-0 text-medal" />
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.16em] text-steel">
+                        {entry.label}
+                      </p>
+                      <p className="mt-1 font-medium text-ink">{entry.institution}</p>
+                      <p className="mt-0.5 text-sm text-ink/75">{entry.detail}</p>
+                    </div>
+                  </li>
+                ))}
+              </Stagger>
             </div>
           </div>
         </div>
@@ -116,7 +120,7 @@ export default function AboutPage() {
 
       <section className="border-b border-hairline bg-bone-muted/40">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-          <SectionLabel number="02">The team</SectionLabel>
+          <SectionLabel number="03">The team</SectionLabel>
           <FadeInLines as="h2" className="mt-6 max-w-2xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
             The people you&apos;ll actually talk to.
           </FadeInLines>
@@ -145,13 +149,13 @@ export default function AboutPage() {
 
       <section className="border-b border-hairline">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
-          <SectionLabel number="03">Credentials & memberships</SectionLabel>
+          <SectionLabel number="04">Credentials & memberships</SectionLabel>
           <FadeInLines as="h2" className="mt-6 max-w-3xl font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
             Board-eligible. Fellowship-trained.
           </FadeInLines>
 
           <Stagger as="ul" stagger={0.07} y={12} className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-3">
-            {CREDENTIALS.map((c) => (
+            {SITE.memberships.map((c) => (
               <li
                 key={c}
                 className="flex items-start gap-3 border-t border-hairline pt-4"
@@ -164,30 +168,10 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="border-b border-hairline">
-        <div className="mx-auto max-w-4xl px-6 py-20 md:py-28">
-          <figure className="text-center">
-            <span className="font-display text-7xl leading-none text-navy/20" aria-hidden>
-              &ldquo;
-            </span>
-            <FadeInLines as="blockquote" className="font-display text-3xl font-normal leading-snug tracking-tight text-ink text-balance md:text-4xl">
-              Dr. Howard fixed a labral tear three other surgeons told me I&apos;d have
-              to live with. Two years later I&apos;m climbing harder than I was before
-              the injury.
-            </FadeInLines>
-            <figcaption className="mt-8 flex items-center justify-center gap-3 text-sm text-steel">
-              <span className="text-ink">James</span>
-              <span className="h-1 w-1 rounded-full bg-steel" />
-              <span>Competitive rock climber</span>
-            </figcaption>
-          </figure>
-        </div>
-      </section>
-
       <CTASection
         eyebrow="The next step"
         title="The right plan starts with a conversation."
-        body="Call the office to schedule a consultation. Most new patients are seen within the week."
+        body="Call the Macomb Orthopedics office in Clinton Township to schedule a consultation. Most new patients are seen within the week."
       />
     </>
   )

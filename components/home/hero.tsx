@@ -25,10 +25,7 @@ export function Hero() {
             as="p"
             className="mt-7 max-w-xl text-lg leading-relaxed text-ink/75"
           >
-            {SITE.doctor.name} is a {SITE.doctor.credentials.toLowerCase()}{" "}
-            specializing in arthroscopic surgery of the shoulder, elbow, and knee.
-            He treats weekend athletes and elite competitors with the same
-            standard of care &mdash; one focused on return to performance.
+            {SITE.doctor.shortBio}
           </FadeInLines>
 
           <div className="mt-10 flex flex-col items-start gap-3 sm:flex-row sm:items-center sm:gap-5">
@@ -55,7 +52,7 @@ export function Hero() {
                 Samuel Howard, <span className="text-steel">{SITE.doctor.degree}</span>
               </p>
               <p className="text-[10px] uppercase tracking-[0.18em] text-steel">
-                Board-eligible, fellowship-trained
+                Fellowship-trained · {SITE.practiceName}
               </p>
             </div>
           </FadeIn>

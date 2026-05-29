@@ -3,7 +3,6 @@ import {
   Bone,
   ScanLine,
   RotateCw,
-  Footprints,
   type LucideIcon,
 } from "lucide-react"
 import { SectionLabel } from "@/components/section-label"
@@ -15,8 +14,8 @@ const SPECIALTY_ICONS: Record<string, LucideIcon> = {
   Shoulder: Bone,
   Knee: Activity,
   Elbow: RotateCw,
-  "Ankle & Foot": Footprints,
-  "Fractures & Trauma": ScanLine,
+  "Sports injuries": Activity,
+  "Non-surgical care": ScanLine,
 }
 
 export function Specialties() {
