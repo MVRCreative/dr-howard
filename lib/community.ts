@@ -1,0 +1,80 @@
+export const COMMUNITY_PHOTOS = [
+  {
+    src: "/community/clinic-senior-olympics.jpg",
+    alt: "Dr. Howard with a Michigan Senior Olympics athlete in clinic",
+    width: 1024,
+    height: 768,
+  },
+  {
+    src: "/community/pickleball-senior-olympics.jpg",
+    alt: "Michigan Senior Olympics pickleball medalists",
+    width: 1024,
+    height: 768,
+  },
+  {
+    src: "/community/michigan-stadium-anchor-bay.jpg",
+    alt: "Dr. Howard at Michigan Stadium for an Anchor Bay High School game",
+    width: 768,
+    height: 1024,
+  },
+  {
+    src: "/community/michigan-stadium-sideline.jpg",
+    alt: "Dr. Howard on the field at Michigan Stadium",
+    width: 768,
+    height: 1024,
+  },
+  {
+    src: "/community/hockey-bench.jpg",
+    alt: "Little Caesars hockey players at the bench",
+    width: 768,
+    height: 1024,
+  },
+  {
+    src: "/community/hockey-players.jpg",
+    alt: "Little Caesars hockey players on the ice",
+    width: 768,
+    height: 1024,
+  },
+  {
+    src: "/community/reds-opening-day-staff.jpg",
+    alt: "Dr. Howard with Cincinnati Reds medical staff on Opening Day",
+    width: 768,
+    height: 1024,
+  },
+  {
+    src: "/community/reds-opening-day.jpg",
+    alt: "Dr. Howard at Cincinnati Reds Opening Day",
+    width: 768,
+    height: 1024,
+  },
+  {
+    src: "/community/family-baseball.jpg",
+    alt: "Dr. Howard with family at a baseball game",
+    width: 768,
+    height: 1024,
+  },
+  {
+    src: "/community/night-football.jpg",
+    alt: "Dr. Howard with colleagues at a night football game",
+    width: 1017,
+    height: 1024,
+  },
+  {
+    src: "/community/beacon-high-school.jpg",
+    alt: "Dr. Howard with the Beacon sports medicine team",
+    width: 1024,
+    height: 819,
+  },
+  {
+    src: "/community/ford-field.jpg",
+    alt: "Dr. Howard with colleagues at Ford Field",
+    width: 768,
+    height: 1024,
+  },
+  {
+    src: "/community/sideline-team.jpg",
+    alt: "Dr. Howard with the sideline medical team",
+    width: 1024,
+    height: 819,
+  },
+] as const
