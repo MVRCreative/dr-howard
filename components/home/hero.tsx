@@ -39,7 +39,7 @@ export function Hero() {
             <div className="absolute -inset-2 border border-navy/30" aria-hidden />
             <div className="relative aspect-[4/5] overflow-hidden bg-bone-muted">
               <Image
-                src="/sam-howard.png"
+                src="/sam-howard.jpg"
                 alt={`Portrait of ${SITE.doctor.name}`}
                 fill
                 priority
