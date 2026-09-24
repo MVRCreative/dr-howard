@@ -6,34 +6,13 @@ import { Award, GraduationCap } from "lucide-react"
 import { FadeInLines } from "@/components/fade-in-lines"
 import { FadeIn, Stagger } from "@/components/scroll-reveal"
 import { SITE } from "@/lib/site"
+import { COMMUNITY_PHOTOS } from "@/lib/community"
 
 export const metadata: Metadata = {
   title: "About Dr. Samuel Howard, D.O.",
   description:
     "Fellowship-trained orthopedic sports medicine surgeon at Macomb Orthopedics in Clinton Township, MI. Education, training, credentials, and practice focus — rotator cuff repair, ACL reconstruction, and arthroscopic surgery.",
 }
-
-// Team names/roles unconfirmed by client — verify before publishing final bios.
-const TEAM = [
-  {
-    name: "Priya Ramaswami, PA-C",
-    role: "Physician Assistant",
-    detail:
-      "Twelve years in orthopedic surgery. Sees patients for follow-ups, runs the post-op protocol clinic, and manages cast and brace fittings.",
-  },
-  {
-    name: "Daniel Okafor, RN",
-    role: "Surgical Nurse",
-    detail:
-      "Operating-room lead. Coordinates surgical scheduling, pre-op clearance, and same-day-of-surgery communication with families.",
-  },
-  {
-    name: "Megan Hartley",
-    role: "Office Manager",
-    detail:
-      "Front-desk lead and the person who actually answers the phone. Handles insurance verification, scheduling, and the occasional crisis.",
-  },
-]
 
 export default function AboutPage() {
   return (
@@ -120,30 +99,32 @@ export default function AboutPage() {
 
       <section className="border-b border-hairline bg-bone-muted/40">
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-28">
-          <SectionLabel number="03">The team</SectionLabel>
+          <SectionLabel number="03">Community Care</SectionLabel>
           <FadeInLines as="h2" className="mt-6 max-w-2xl font-display text-4xl font-medium leading-[1.05] tracking-tight text-balance md:text-5xl">
-            The people you&apos;ll actually talk to.
+            Keeping you{" "}
+            <span className="italic text-accent-blue">in the game.</span>
           </FadeInLines>
 
-          <Stagger stagger={0.14} y={20} className="mt-14 grid gap-10 md:grid-cols-3 md:gap-8">
-            {TEAM.map((member, i) => (
-              <div
-                key={member.name}
-                className="border-t border-navy/30 pt-6"
-              >
-                <span className="font-mono text-xs tabular text-steel">
-                  0{i + 1}
-                </span>
-                <h3 className="mt-3 font-display text-2xl font-medium text-ink">
-                  {member.name}
-                </h3>
-                <p className="mt-1 text-sm uppercase tracking-[0.16em] text-navy">
-                  {member.role}
-                </p>
-                <p className="mt-4 text-ink/75">{member.detail}</p>
-              </div>
+          <div className="mt-14 columns-1 gap-6 sm:columns-2 lg:columns-3">
+            {COMMUNITY_PHOTOS.map((photo) => (
+              <figure key={photo.src} className="mb-6 break-inside-avoid">
+                <div className="relative p-2">
+                  <div
+                    className="absolute inset-0 border border-navy/30"
+                    aria-hidden
+                  />
+                  <Image
+                    src={photo.src}
+                    alt={photo.alt}
+                    width={photo.width}
+                    height={photo.height}
+                    className="h-auto w-full"
+                    sizes="(min-width: 1024px) 30vw, (min-width: 640px) 45vw, 100vw"
+                  />
+                </div>
+              </figure>
             ))}
-          </Stagger>
+          </div>
         </div>
       </section>
 
