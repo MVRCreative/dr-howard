@@ -15,6 +15,25 @@ export const SITE = {
       "During his fellowship, Dr. Howard provided care for all levels of athletes. He served as an associate team physician for the Cincinnati Reds, Miami (OH) University Redhawks, Archbishop Moeller High School Crusaders, and Madeira High School Mustangs. After completing his fellowship, he decided to return home to Michigan with his wife and 3 children to serve the community he grew up in.",
       "Whether in clinic or at home, Dr. Howard applies the same energy, commitment, and focus to his patients as he does to his family and life.",
     ],
+    highlights: [
+      "Arthroscopic Surgery Specialist",
+      "Sports Medicine Specialist",
+      "Orthopedic Physician for Anchor Bay High School",
+      "Medical Director for Little Caesars AAA Hockey",
+    ],
+  },
+  teamPhysician: {
+    title: "Team Physician",
+    logos: [
+      {
+        src: "/logos/anchor-bay.png",
+        alt: "Anchor Bay High School Tars",
+      },
+      {
+        src: "/logos/little-caesars.png",
+        alt: "Little Caesars AAA Hockey Club",
+      },
+    ],
   },
   practiceName: "Macomb Orthopedics",
   phone: {

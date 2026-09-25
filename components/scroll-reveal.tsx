@@ -51,6 +51,7 @@ export function FadeIn({
       return
     }
 
+    const inView = el.getBoundingClientRect().top < window.innerHeight * 0.92
     const tween = gsap.fromTo(
       el,
       { y, opacity: 0 },
@@ -60,11 +61,13 @@ export function FadeIn({
         duration,
         delay,
         ease: "power2.out",
-        scrollTrigger: {
-          trigger: el,
-          start,
-          once: true,
-        },
+        scrollTrigger: inView
+          ? undefined
+          : {
+              trigger: el,
+              start,
+              once: true,
+            },
       },
     )
 
@@ -76,7 +79,7 @@ export function FadeIn({
 
   const Comp = Tag as ElementType
   return (
-    <Comp ref={ref as never} className={className} style={{ opacity: 0 }}>
+    <Comp ref={ref as never} className={className}>
       {children}
     </Comp>
   )
@@ -132,6 +135,7 @@ export function Stagger({
       return
     }
 
+    const inView = el.getBoundingClientRect().top < window.innerHeight * 0.92
     const tween = gsap.fromTo(
       targets,
       { y, opacity: 0 },
@@ -141,11 +145,13 @@ export function Stagger({
         duration,
         stagger,
         ease: "power2.out",
-        scrollTrigger: {
-          trigger: el,
-          start,
-          once: true,
-        },
+        scrollTrigger: inView
+          ? undefined
+          : {
+              trigger: el,
+              start,
+              once: true,
+            },
       },
     )
 

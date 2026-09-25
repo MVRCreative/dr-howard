@@ -145,17 +145,12 @@ export function FadeInLines({
         }
       })
 
-      // Set initial state. Show wrapper once words are wrapped.
+      // Hide words only after they are wrapped so a hung font/ScrollTrigger
+      // load cannot leave the original copy stuck at opacity 0.
       gsap.set(wordEls, { y, opacity: 0 })
       el.style.opacity = "1"
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: el,
-          start,
-          once: true,
-        },
-      })
+      const tl = gsap.timeline({ paused: true })
 
       lines.forEach((line, i) => {
         tl.to(
@@ -170,21 +165,37 @@ export function FadeInLines({
         )
       })
 
-      trigger = tl.scrollTrigger ?? null
+      const inView = el.getBoundingClientRect().top < window.innerHeight * 0.92
+      if (inView) {
+        tl.play()
+      } else {
+        trigger = ScrollTrigger.create({
+          trigger: el,
+          start,
+          once: true,
+          onEnter: () => tl.play(),
+        })
+      }
     }
 
-    // Hide pre-split to avoid a flash of un-staggered content
-    el.style.opacity = "0"
+    // Keep copy visible until split actually starts. A hung fonts.ready
+    // used to leave headings at opacity 0 forever.
+    el.style.opacity = "1"
 
-    // Wait for fonts so word offsetTop is calculated against the
-    // final layout (otherwise everything can collapse to one "line").
+    let started = false
     const startWhenReady = () => {
-      if (cancelled) return
+      if (cancelled || started) return
+      started = true
       requestAnimationFrame(splitAndAnimate)
     }
+    const fontTimeout = window.setTimeout(startWhenReady, 400)
     if (typeof document !== "undefined" && document.fonts && document.fonts.status !== "loaded") {
-      document.fonts.ready.then(startWhenReady)
+      document.fonts.ready.then(() => {
+        window.clearTimeout(fontTimeout)
+        startWhenReady()
+      })
     } else {
+      window.clearTimeout(fontTimeout)
       startWhenReady()
     }
 
@@ -199,6 +210,7 @@ export function FadeInLines({
 
     return () => {
       cancelled = true
+      window.clearTimeout(fontTimeout)
       cancelAnimationFrame(resizeRaf)
       window.removeEventListener("resize", onResize)
       trigger?.kill()
@@ -207,7 +219,7 @@ export function FadeInLines({
 
   const Comp = Tag as ElementType
   return (
-    <Comp ref={ref as never} className={className} style={{ opacity: 0 }}>
+    <Comp ref={ref as never} className={className}>
       {children}
     </Comp>
   )

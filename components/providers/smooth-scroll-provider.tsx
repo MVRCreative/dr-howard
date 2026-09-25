@@ -32,6 +32,7 @@ export function SmoothScrollProvider({ children }: { children: ReactNode }) {
     }
     gsap.ticker.add(tickerCallback)
     gsap.ticker.lagSmoothing(0) // Prevent GSAP from pausing on tab switch
+    requestAnimationFrame(() => ScrollTrigger.refresh())
 
     return () => {
       gsap.ticker.remove(tickerCallback)
