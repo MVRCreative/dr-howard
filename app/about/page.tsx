@@ -132,7 +132,7 @@ export default function AboutPage() {
         <div className="mx-auto max-w-7xl px-6 py-20 md:py-24">
           <SectionLabel number="04">Credentials & memberships</SectionLabel>
           <FadeInLines as="h2" className="mt-6 max-w-3xl font-display text-3xl font-medium leading-tight tracking-tight text-balance md:text-4xl">
-            Board-eligible. Fellowship-trained.
+            Fellowship-trained.
           </FadeInLines>
 
           <Stagger as="ul" stagger={0.07} y={12} className="mt-12 grid gap-5 sm:grid-cols-2 md:grid-cols-3">

@@ -4,7 +4,7 @@ export const SITE = {
     shortName: "Dr. Howard",
     fullName: "Dr. Samuel Howard",
     credentials:
-      "Board-eligible Orthopedic Surgeon, fellowship-trained in Orthopedic Sports Medicine",
+      "Orthopedic Surgeon, fellowship-trained in Orthopedic Sports Medicine",
     degree: "D.O.",
     googleBio:
       "Dr. Samuel Howard is a fellowship-trained Orthopedic Sports Medicine surgeon, specializing in minimally invasive arthroscopic surgery of the shoulder, knee, and elbow, as well as total and reverse shoulder replacements. He performs a wide range of advanced procedures, including rotator cuff repair, shoulder instability surgery, SLAP and labral repairs, biceps tenodesis, ACL reconstruction, meniscus repair or meniscectomy, MPFL reconstruction, and cartilage restoration procedures. Dr. Howard also offers expert non-surgical care for common conditions such as patellar tendinitis, Achilles tendinitis, frozen shoulder, trochanteric bursitis, joint sprains, and fractures.",
@@ -18,12 +18,12 @@ export const SITE = {
     highlights: [
       "Arthroscopic Surgery Specialist",
       "Sports Medicine Specialist",
-      "Orthopedic Physician for Anchor Bay High School",
+      "Medical Director for Anchor Bay High School",
       "Medical Director for Little Caesars AAA Hockey",
+      "Former Physician for the Cincinnati Reds Major League Baseball Team, Miami (OH) University, and Archbishop Moeller High School",
     ],
   },
   teamPhysician: {
-    title: "Team Physician",
     logos: [
       {
         src: "/logos/anchor-bay.png",
@@ -32,6 +32,18 @@ export const SITE = {
       {
         src: "/logos/little-caesars.png",
         alt: "Little Caesars AAA Hockey Club",
+      },
+      {
+        src: "/logos/cincinnati-reds.png",
+        alt: "Cincinnati Reds",
+      },
+      {
+        src: "/logos/miami-redhawks.png",
+        alt: "Miami University RedHawks",
+      },
+      {
+        src: "/logos/moeller.jpg",
+        alt: "Archbishop Moeller High School Crusaders",
       },
     ],
   },

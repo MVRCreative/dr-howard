@@ -1,21 +1,41 @@
-import {
-  Activity,
-  Bone,
-  ScanLine,
-  RotateCw,
-  type LucideIcon,
-} from "lucide-react"
+import Image from "next/image"
 import { SectionLabel } from "@/components/section-label"
 import { FadeInLines } from "@/components/fade-in-lines"
 import { Stagger } from "@/components/scroll-reveal"
 import { SITE } from "@/lib/site"
 
-const SPECIALTY_ICONS: Record<string, LucideIcon> = {
-  Shoulder: Bone,
-  Knee: Activity,
-  Elbow: RotateCw,
-  "Sports injuries": Activity,
-  "Non-surgical care": ScanLine,
+const SPECIALTY_PHOTOS: Record<
+  string,
+  { src: string; alt: string; position?: string; fit?: "cover" | "contain" }
+> = {
+  Shoulder: {
+    src: "/specialties/joints.jpg",
+    alt: "Shoulder joint anatomy",
+    position: "0% 50%",
+    fit: "cover",
+  },
+  Elbow: {
+    src: "/specialties/joints.jpg",
+    alt: "Elbow joint anatomy",
+    position: "50% 50%",
+    fit: "cover",
+  },
+  Knee: {
+    src: "/specialties/joints.jpg",
+    alt: "Knee joint anatomy",
+    position: "100% 50%",
+    fit: "cover",
+  },
+  "Sports injuries": {
+    src: "/specialties/sports-injuries.jpg",
+    alt: "Baseball, football, soccer ball, and hockey puck",
+    fit: "contain",
+  },
+  "Non-surgical care": {
+    src: "/specialties/non-surgical.jpg",
+    alt: "Syringe for injection and non-surgical treatment",
+    fit: "contain",
+  },
 }
 
 export function Specialties() {
@@ -38,13 +58,22 @@ export function Specialties() {
           <div className="md:col-span-8">
             <Stagger as="ul" stagger={0.12} y={24} className="divide-y divide-hairline border-y border-hairline">
               {SITE.specialties.map((s, i) => {
-                const Icon = SPECIALTY_ICONS[s.title] ?? Bone
+                const photo = SPECIALTY_PHOTOS[s.title]
                 return (
                   <li key={s.title} className="py-6 md:py-8">
-                    <div className="grid grid-cols-[2.75rem_1fr] gap-x-5 gap-y-4 md:gap-x-8">
-                      <span className="flex h-11 w-11 items-center justify-center border border-navy/30 text-navy">
-                        <Icon className="h-5 w-5" aria-hidden />
-                      </span>
+                    <div className="grid grid-cols-[6.5rem_1fr] items-start gap-x-5 gap-y-4 md:gap-x-8">
+                      {photo ? (
+                        <span className="relative block h-[8.1rem] w-[6.5rem] overflow-hidden border border-navy/30 bg-white">
+                          <Image
+                            src={photo.src}
+                            alt={photo.alt}
+                            fill
+                            className={photo.fit === "contain" ? "object-contain p-1" : "object-cover"}
+                            style={photo.position ? { objectPosition: photo.position } : undefined}
+                            sizes="104px"
+                          />
+                        </span>
+                      ) : null}
                       <div className="min-w-0">
                         <div className="flex items-baseline gap-3">
                           <span className="font-mono text-xs tabular text-steel">

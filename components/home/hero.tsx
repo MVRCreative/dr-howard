@@ -33,23 +33,21 @@ export function Hero() {
             <BookOnlineCTA variant="outline" size="lg" />
           </div>
 
-          <FadeIn className="mt-10" y={16} duration={0.8} delay={0.2}>
-            <div className="flex flex-col items-start gap-4 sm:flex-row sm:items-center sm:gap-6">
-              <p className="font-display text-xl font-medium tracking-tight text-ink md:text-2xl">
-                {SITE.teamPhysician.title}
-              </p>
-              <div className="flex flex-wrap items-center gap-4">
-                {SITE.teamPhysician.logos.map((logo) => (
-                  <Image
-                    key={logo.src}
-                    src={logo.src}
-                    alt={logo.alt}
-                    width={88}
-                    height={88}
-                    className="size-[5.5rem] object-contain"
-                  />
-                ))}
-              </div>
+          <FadeIn className="mt-10 w-full" y={16} duration={0.8} delay={0.2}>
+            <div
+              className="grid w-full grid-cols-5 items-center justify-items-center"
+              aria-label="Team affiliations"
+            >
+              {SITE.teamPhysician.logos.map((logo) => (
+                <Image
+                  key={logo.src}
+                  src={logo.src}
+                  alt={logo.alt}
+                  width={88}
+                  height={88}
+                  className="h-14 w-full max-w-[4.5rem] object-contain sm:h-16 sm:max-w-[5rem]"
+                />
+              ))}
             </div>
           </FadeIn>
         </div>
